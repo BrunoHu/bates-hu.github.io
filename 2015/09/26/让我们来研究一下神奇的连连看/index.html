@@ -1,0 +1,87 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="学习 感悟 精炼 内化"><title>让我们来研究一下神奇的连连看 | 巴别塔</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/4.1.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/2.2.3/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">让我们来研究一下神奇的连连看</h1><a id="logo" href="/.">巴别塔</a><p class="description">每天搭块砖～ 每天向上爬～</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/timeline/"><i class="fa fa-archive"> timeline</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">让我们来研究一下神奇的连连看</h1><div class="post-meta">Sep 26, 2015<script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> Hits</span></span></div><a data-thread-key="2015/09/26/让我们来研究一下神奇的连连看/" href="/2015/09/26/让我们来研究一下神奇的连连看/#comments" class="ds-thread-count"></a><div class="post-content"><p>找个小游戏来学习练习一下构建模型，练练看结构简约而不简单，刚刚好，就拿来练练手，下一期说不定是数独，我觉得那个也挺有意思的~</p>
+<p>在下面的文章里，把连连看里的小方快都叫做<strong>结点</strong>，这样能够统一数据结构和通俗的叫法，不易混淆。</p>
+<h1 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h1><p>我们可以总结一下连连看这个游戏的规则来构建模型：</p>
+<ol>
+<li>当所有的结点都被消去时，游戏结束。</li>
+<li>两个结点之间如果图案相同而且存在一条路径上没有其他结点，而且这条路径转弯的粗书不超过两次，那么这两个结点称为相连的。</li>
+<li>相连的结点可消去，消去后所在位置为空。</li>
+<li>当不存在相连结点并且还有结点存在时，称为死锁状态，应自动调换所有结点的位置。</li>
+</ol>
+<p>那么，根据连连看的规则，这个游戏只有三个状态：</p>
+<ol>
+<li>存在可以连的结点。</li>
+<li>死锁状态。</li>
+<li>没有结点，游戏结束。</li>
+</ol>
+<p>而这三种状态之间的转换只有两种可能：</p>
+<ol>
+<li>消去了一对结点。</li>
+<li>没有可以消去的结点，随机调整。</li>
+</ol>
+<p>下面是这个有限状态机的示意图：<br><img src="http://7xl294.com1.z0.glb.clouddn.com/连连看状态机.png" alt=""></p>
+<p>这个是详细的流程图：<br><img src="http://7xl294.com1.z0.glb.clouddn.com/连连看算法示意图.png" alt=""></p>
+<p>这样，一个连连看的核心模型就完成了。</p>
+<p>然后我们就可以继续搞定数据结构和算法了。</p>
+<h1 id="数据结构及存储"><a href="#数据结构及存储" class="headerlink" title="数据结构及存储"></a>数据结构及存储</h1><h2 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h2><p>完成连连看所需要的数据无非是每个图的图像和位置，那么我们如果把每个连连看看里的图像当成结点，那么每个结点应该至少有位置和内容。</p>
+<h2 id="存储"><a href="#存储" class="headerlink" title="存储"></a>存储</h2><p>因为结点的位置不会发生变动，所以最省资源的还是静态的数组，在python里可以用双重列表。</p>
+<p>然后对于图像而言，可以建立一个索引来指向图像，那么数组的元素保存图像的索引就可以完成对连连看的数据结构的存储。</p>
+<p>当然，因为连连看需要的空间小，而且程序所要求的速度性能非常低，任性点直接每个节点都存储位置和图像，然后直接把结点随意塞到一个数组里也是一点问题都没有的。</p>
+<h1 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h1><p>我们在流程图中可以看到，整个的过程就是两个判断和两个流程，我们的算法也就是实现这四个家伙，在这里我们只是考虑如何实现这些流程，到后面再来考虑如何做优化。</p>
+<ul>
+<li>实现消去一个对子</li>
+<li>实现调整位置</li>
+<li>判断是否还有结点</li>
+<li>判断是否死锁</li>
+</ul>
+<hr>
+<p>下面我们来一个个讨论如何实现</p>
+<p><strong>实现消去一对结点</strong></p>
+<p>这里面最重要的算法就是计算两个结点之间能不能连通，这个有很多实现方法。我先抛砖引玉说一种思路。</p>
+<blockquote>
+<p>遍历一个结点能连通的所有位置，每遍历一个位置观察对应结点是不是在这个位置上。</p>
+</blockquote>
+<p>由规则2我们知道，连连看规则是连线之间不能有其他结点，并且路线不能弯折超过两次。</p>
+<p>那么路线就可以分为三种层次–没有弯折，弯折一次，弯折两次。可以用一个高度不超过3的树来表示这种结构。既然可以用树来表达，那么我们就可以用树的深度优先搜索和广度优先搜索了。</p>
+<p>如果用广度优先，那么我们先可以先找出所有不用弯折就可以到达的位置，把这些位置存着，如果这途中没有找到，那么这些点重复上面的步骤，找出所有弯折一次能到的位置，如果没找到，再重复。如果还没找到，那么就表示无法连通。</p>
+<p><strong>确定死锁</strong></p>
+<p>我们既然是学贵数学的，就应该把这个问题转化成已经解决过的问题。比如，我们可以很粗暴的直接遍历所有剩下的结点，看看是否都没有相连的结点。如果都没有，那么就表示死锁了。</p>
+<p><strong>判断是否还有节点</strong></p>
+<p>这个看数据结构，如果用的是数组的话，那么遍历整个数组，看看是不是每个位置都是空的。</p>
+<p><strong>调整</strong></p>
+<p>每次随机选出两个还有结点的位置，交换这两个位置的图案。</p>
+<p>这样模型，结构和算法都已经完成了，然后我们就可以开始码代码测试了。</p>
+<h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><p>这个连连看的demo已经实现了，只有最简陋的运行在命令行的程序，没有任何美化。不过所有的基础功能都已经实现了，算是连连看1.0完成了吧。</p>
+<p>程序的python文件在我的<a href="https://github.com/Arnold-Hu/garage/blob/master/lianliankan/simple_lianlian.py" target="_blank" rel="external">github/garage/lianliankan</a>里,随便你复制粘贴或者clone代码都行，只有那一个文件。</p>
+<p>这个文件可以直接import，开始游戏的那一段已经通过<code>if __name__ == &#39;__main__&#39;</code>给限定在测试用，当你把这个文件当模块用的时候，这部内容会自动忽略。</p>
+<p>因为是1.0版，所以这个版本的实现可以说是非常仓促，没有任何优化，甚至为了通过测试，很多地方都冗余了，后面有时间会慢慢改进。</p>
+<p>程序里注释了每个函数的功能，结合上说过的算法很容易知道整个运行逻辑。</p>
+<p>ps：果然写一整个小项目的过程比写一个算法烦多了。。。第一次用pycharm来排bug。难得一次写几百行，还是这么简单的玩具代码，想想以后要写的东西，任重道远啊～</p>
+<h1 id="todo"><a href="#todo" class="headerlink" title="todo"></a>todo</h1><ul>
+<li>代码实现  done</li>
+<li>效果展示</li>
+<li>优化的思考<br>++ 如何实现提示功能<br>++ 能不能优化搜索路径的步骤使得不需要每次判断相连都要重新搜索<br>++ 如何快速的确定死锁<br>++ 如何快速的判断是否还有结点<br>++ 如何减少执行这个程序需要的内存</li>
+</ul>
+<p>其实对于上面的小程序，上面的优化都毫无必要，但是我们还是把他当成一个大工程来想想，锻炼一下～</p>
+</div><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a data-url="http://migdal-bavel.in.com/2015/09/26/让我们来研究一下神奇的连连看/" data-id="cipdl02om000gghfyvdn1nws2" class="article-share-link">分享到</a><div class="tags"><a href="/tags/算法/">算法</a><a href="/tags/数据结构/">数据结构</a><a href="/tags/游戏/">游戏</a></div><div class="post-nav"><a href="/2015/12/29/暴力解决三门问题/" class="pre">暴力解决三门问题</a><a href="/2015/09/20/用python实现kmeans算法/" class="next">用python实现kmeans算法</a></div><div data-thread-key="2015/09/26/让我们来研究一下神奇的连连看/" data-title="让我们来研究一下神奇的连连看" data-url="http://migdal-bavel.in.com/2015/09/26/让我们来研究一下神奇的连连看/" class="ds-share flat"><div class="ds-share-inline"><ul class="ds-share-icons-16"><li data-toggle="ds-share-icons-more"><a href="javascript:void(0);" class="ds-more">分享到：</a></li><li><a href="javascript:void(0);" data-service="weibo" class="ds-weibo">微博</a></li><li><a href="javascript:void(0);" data-service="qzone" class="ds-qzone">QQ空间</a></li><li><a href="javascript:void(0);" data-service="qqt" class="ds-qqt">腾讯微博</a></li><li><a href="javascript:void(0);" data-service="wechat" class="ds-wechat">微信</a></li></ul><div class="ds-share-icons-more"></div></div></div><div data-thread-key="2015/09/26/让我们来研究一下神奇的连连看/" data-title="让我们来研究一下神奇的连连看" data-url="http://migdal-bavel.in.com/2015/09/26/让我们来研究一下神奇的连连看/" data-author-key="1" class="ds-thread"></div></div></div></div><div class="pure-u-1-4"><div id="sidebar"><div class="widget"><div class="search-form"><input id="local-search-input" placeholder="Search" type="text" name="q" results="0"/><div id="local-search-result"></div></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/数据/" style="font-size: 15px;">数据</a> <a href="/tags/随笔/" style="font-size: 15px;">随笔</a> <a href="/tags/数据库/" style="font-size: 15px;">数据库</a> <a href="/tags/code/" style="font-size: 15px;">code</a> <a href="/tags/算法/" style="font-size: 15px;">算法</a> <a href="/tags/HEXO/" style="font-size: 15px;">HEXO</a> <a href="/tags/建博客/" style="font-size: 15px;">建博客</a> <a href="/tags/教程/" style="font-size: 15px;">教程</a> <a href="/tags/Github-Pages/" style="font-size: 15px;">Github Pages</a> <a href="/tags/scrapy/" style="font-size: 15px;">scrapy</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/爬虫/" style="font-size: 15px;">爬虫</a> <a href="/tags/math/" style="font-size: 15px;">math</a> <a href="/tags/数独/" style="font-size: 15px;">数独</a> <a href="/tags/数据挖掘/" style="font-size: 15px;">数据挖掘</a> <a href="/tags/聚类/" style="font-size: 15px;">聚类</a> <a href="/tags/machine-learing/" style="font-size: 15px;">machine learing</a> <a href="/tags/algorithm/" style="font-size: 15px;">algorithm</a> <a href="/tags/数据结构/" style="font-size: 15px;">数据结构</a> <a href="/tags/游戏/" style="font-size: 15px;">游戏</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/06/04/线性回归和梯度下降/">线性回归和梯度下降</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/29/leetcode记/">leetcode记（持续更新中）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/14/数独的高效深度搜索解法/">数独的高效深度搜索解法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/30/python和数据库的接口简介/">python和数据库的接口简介</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/29/暴力解决三门问题/">暴力解决三门问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/26/让我们来研究一下神奇的连连看/">让我们来研究一下神奇的连连看</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/20/用python实现kmeans算法/">用python实现kmeans算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/22/一定要养成备份文件的好习惯，防止手贱/">一定要养成备份文件的好习惯，防止手贱</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/22/基于scrapy的爬虫的快速上手教程-以内推网为例/">基于scrapy的爬虫的快速上手教程----以内推网为例</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/22/利用github-page以及hexo模板建立个人独立博客/">利用github page以及hexo模板建立个人独立博客</a></li></ul></div><div class="widget"><div class="comments-title"><i class="fa fa-comment-o"> 最近评论</i></div><div data-num-items="5" data-show-avatars="0" data-show-time="1" data-show-admin="0" data-excerpt-length="32" data-show-title="1" class="ds-recent-comments"></div></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="http://mathpluscode.com/" title="Pierre Fu 法国逍遥少年" target="_blank">Pierre Fu 法国逍遥少年</a><ul></ul><a href="http://v1ns0n.github.io/" title="v1ns0n 上交苦逼博士" target="_blank">v1ns0n 上交苦逼博士</a><ul></ul><a href="http://xiaoyc.com/" title="xiaoyc 肖大神" target="_blank">xiaoyc 肖大神</a><ul></ul><a href="http://handsomeone.com/" title="周男神" target="_blank">周男神</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">© <a href="/." rel="nofollow">巴别塔.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.css?v=0.0.0"><script>var duoshuoQuery = {short_name:'migdal-bavel'};
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script><script type="text/javascript" src="/js/search.js?v=0.0.0"></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+   search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?d0f9ddc5837fa2c13aa39295424a1eec";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+  })();
+</script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
