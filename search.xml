@@ -4,6 +4,28 @@
   
     
     <entry>
+      <title><![CDATA[logistic分类器]]></title>
+      <url>http://migdal-bavel.in.com/2016/06/17/logistic%E5%88%86%E7%B1%BB%E5%99%A8/</url>
+      <content type="html"><![CDATA[<h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><p>现在我们来到了分类器，首先我们考虑一个最简单的二元分类器，抽象成只判断对错。那么，换句话说我们希望我们得到的结果是离散的，但是我们前面的函数都是线性的，显然不能很好的处理这一类问题，所以，我们得新引进一个函数来把连续的结果处理成离散的效果，轮到logistic函数（又称sigmoid函数）登场了</p>
+<p>$$g(x)=\frac{1}{1+e^{-x}}$$</p>
+<p>图像如下，很明显可以看出越靠近零点斜率变化越大，函数在0点附近急剧的变化到0和1，这正是两个非常适于数学处理的离散值。<br><img src="http://7xl294.com1.z0.glb.clouddn.com/sigmoid.png" alt=""></p>
+<p>而基于线性回归，我们可以用一条线（或者说是超平面）来分割点集来得到分类的效果，那么我们可以通过刚才介绍的logistic函数来的到离散化的反馈结果来进行优化。那么我们的预测函数$h_\theta (x)$如下</p>
+<p>$$h_\theta (x)=g(\theta^T x) = \frac{1}{1+e^{-\theta^T x}}$$</p>
+<p>那我们怎么来对$\theta$进行迭代优化呢？线性回归可以通过极大似然估计，这个自然也是ok的，那么，我们也来估计一下。</p>
+<h3 id="概率意义"><a href="#概率意义" class="headerlink" title="概率意义"></a>概率意义</h3><p>根据$h_\theta (x)$的意义，我们能够得到下面的等式<br>$$P(y=1|x;\theta)=h_\theta(x)$$<br>$$P(y=0|x;\theta)=1-h_\theta(x)$$<br>那么，综合一下得到一个适合数学分析的等式<br>$$P(y|x;\theta) = h_\theta(x)^y (1-h(x))^{1-y}$$</p>
+<p>同样，我们求极大似然估计<br>$$L(\theta) = \prod_{i=1}^m h_\theta (x^{(i)})^{y^{(i)}} (1-h(x^{(i)}))^{1-y^{(i)}}$$<br>$$l(\theta) = log(L(\theta)) = \sum_{i=1}^m y^{(i)}log(h_\theta(x^{(i)})) + (1-y^{(i)})log(1-h_\theta(x^{(i)}))$$</p>
+<p>我们要使$l(\theta)$最大，那么自然而然我们可以用到梯度上升法，那么，每次的迭代就是这样</p>
+<p>$$\theta := \theta + \alpha \nabla_\theta l(\theta)$$</p>
+<p>现在的问题就是怎么求$l(\theta)$关于$\theta$的梯度</p>
+<p>首先，我们先求<br>$$\begin{align}<br>\frac{\partial h_\theta (x^{(i)})}{\partial \theta_j} &amp;=<br>-(\frac{1}{1+e^{-\theta^T x^{(i)}}})^2 \bullet e^{-\theta^T x^{(i)}} \bullet (-x_j^{(i)}) \\<br>&amp;= \frac{1}{1+e^{-\theta^T x^{(i)}}} \bullet \frac{e^{-\theta^T x^{(i)}}}{1+e^{-\theta^T x^{(i)}}} \bullet x_j^{(i)} \\<br>&amp;= h_\theta (x^{(i)})(1-h_\theta (x^{(i)})) x_j^{(i)}<br>\end{align}$$</p>
+<p>那么，我们带入可以求得<br>$$\begin{align}<br>&amp; \frac{\partial}{\partial \theta_j} \sum_{i=1}^m y^{(i)}logh_\theta(x^{(i)}) + (1-y^{(i)})log(1- h_\theta(x^{(i)})) \\<br>&amp;= \sum_{i=1}^m \frac{1}{h_\theta (x^{(i)})} \bullet \frac{\partial h_\theta (x^{(i)})}{\partial \theta_j} +<br>(1-y^{(i)}) \bullet \frac{1}{1-h_\theta (x^{(i)})} \bullet \frac{\partial (1-h_\theta (x^{(i)}))}{\partial \theta_j} \\<br>&amp;= \sum_{i=1}^m y^{(i)}(1-h_\theta(x^{(i)}))x_j^{(i)} - (1-y^{(i)})h_\theta(x^{(i)})x_j^{(i)} \\<br>&amp;= \sum_{i=1}^m (y^{(i)} - h_\theta(x^{(i)}))x_j^{(i)}<br>\end{align}$$</p>
+<h3 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h3><p>最终我们得到了$\theta$的迭代式<br>$$\theta_j := \theta_j + \alpha \sum_{i=1}^m \left[ y^{(i)}-h_\theta (x^{(i)}) \right] x_j^{(i)}$$</p>
+<p>自然，我们也可以和线性回归的方法一样用随机梯度法</p>
+<p>$$ \theta_j := \theta_j + \alpha \left[ y^{(i)}-h_\theta (x^{(i)}) \right] x_j^{(i)}$$</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[线性回归和梯度下降]]></title>
       <url>http://migdal-bavel.in.com/2016/06/04/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E5%92%8C%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/</url>
       <content type="html"><![CDATA[<p>找了工作之后好像好久没有更新了,很多东西都忘记了,刚好最近正在重新入门machine learning,就写一下最简单的线性回归,重新捡一下快忘记的numpy, matplotlib,和latex.</p>
