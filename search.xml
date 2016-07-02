@@ -19,9 +19,11 @@
 <p>现在的问题就是怎么求$l(\theta)$关于$\theta$的梯度</p>
 <p>首先，我们先求<br>$$\begin{align}<br>\frac{\partial h_\theta (x^{(i)})}{\partial \theta_j} &amp;=<br>-(\frac{1}{1+e^{-\theta^T x^{(i)}}})^2 \bullet e^{-\theta^T x^{(i)}} \bullet (-x_j^{(i)}) \\<br>&amp;= \frac{1}{1+e^{-\theta^T x^{(i)}}} \bullet \frac{e^{-\theta^T x^{(i)}}}{1+e^{-\theta^T x^{(i)}}} \bullet x_j^{(i)} \\<br>&amp;= h_\theta (x^{(i)})(1-h_\theta (x^{(i)})) x_j^{(i)}<br>\end{align}$$</p>
 <p>那么，我们带入可以求得<br>$$\begin{align}<br>&amp; \frac{\partial}{\partial \theta_j} \sum_{i=1}^m y^{(i)}logh_\theta(x^{(i)}) + (1-y^{(i)})log(1- h_\theta(x^{(i)})) \\<br>&amp;= \sum_{i=1}^m \frac{1}{h_\theta (x^{(i)})} \bullet \frac{\partial h_\theta (x^{(i)})}{\partial \theta_j} +<br>(1-y^{(i)}) \bullet \frac{1}{1-h_\theta (x^{(i)})} \bullet \frac{\partial (1-h_\theta (x^{(i)}))}{\partial \theta_j} \\<br>&amp;= \sum_{i=1}^m y^{(i)}(1-h_\theta(x^{(i)}))x_j^{(i)} - (1-y^{(i)})h_\theta(x^{(i)})x_j^{(i)} \\<br>&amp;= \sum_{i=1}^m (y^{(i)} - h_\theta(x^{(i)}))x_j^{(i)}<br>\end{align}$$</p>
-<h3 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h3><p>最终我们得到了$\theta$的迭代式<br>$$\theta_j := \theta_j + \alpha \sum_{i=1}^m \left[ y^{(i)}-h_\theta (x^{(i)}) \right] x_j^{(i)}$$</p>
+<h3 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h3><p>最终我们得到了$\theta$迭代式<br>$$\theta_j := \theta_j - \alpha \sum_{i=1}^m \left[ h_\theta (x^{(i)}) - y^{(i)}\right] x_j^{(i)}$$</p>
 <p>自然，我们也可以和线性回归的方法一样用随机梯度法</p>
-<p>$$ \theta_j := \theta_j + \alpha \left[ y^{(i)}-h_\theta (x^{(i)}) \right] x_j^{(i)}$$</p>
+<p>$$ \theta_j := \theta_j - \alpha \left[h_\theta (x^{(i)}) - y^{(i)} \right] x_j^{(i)}$$</p>
+<h3 id="有图有真相"><a href="#有图有真相" class="headerlink" title="有图有真相"></a>有图有真相</h3><p>左上图是不停迭代的分类器，右上是原始的分类数据，下方是每次生成的分类器的误差，数据经过了规整。</p>
+<p>$$\alpha = 1$$<br><img src="http://7xl294.com1.z0.glb.clouddn.com/logistic_1.png" alt=""><br>$$\alpha = 20$$<br><img src="http://7xl294.com1.z0.glb.clouddn.com/logistic_20.png" alt=""><br>$$\alpha = 100$$<br><img src="http://7xl294.com1.z0.glb.clouddn.com/logistic_100.png" alt=""></p>
 ]]></content>
     </entry>
     
