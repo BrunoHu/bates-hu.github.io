@@ -23,7 +23,10 @@
 <p>自然，我们也可以和线性回归的方法一样用随机梯度法</p>
 <p>$$ \theta_j := \theta_j - \alpha \left[h_\theta (x^{(i)}) - y^{(i)} \right] x_j^{(i)}$$</p>
 <h3 id="有图有真相"><a href="#有图有真相" class="headerlink" title="有图有真相"></a>有图有真相</h3><p>左上图是不停迭代的分类器，右上是原始的分类数据，下方是每次生成的分类器的误差，数据经过了规整。</p>
-<p>$$\alpha = 1$$<br><img src="http://7xl294.com1.z0.glb.clouddn.com/logistic_1.png" alt=""><br>$$\alpha = 20$$<br><img src="http://7xl294.com1.z0.glb.clouddn.com/logistic_20.png" alt=""><br>$$\alpha = 100$$<br><img src="http://7xl294.com1.z0.glb.clouddn.com/logistic_100.png" alt=""></p>
+<p>突然发现两类数据有超平面可以完全分开的时候，$\alpha$取多少都无所谓，原因不明，待思考~<br>$$\alpha = 1$$<br><img src="http://7xl294.com1.z0.glb.clouddn.com/logistic_1.png" alt=""><br>$$\alpha = 20$$<br><img src="http://7xl294.com1.z0.glb.clouddn.com/logistic_20.png" alt=""><br>$$\alpha = 100$$<br><img src="http://7xl294.com1.z0.glb.clouddn.com/logistic_100.png" alt=""></p>
+<p>但是当不能完全分开的时候，取得alpha过大的话会在极值处徘徊无法收敛~</p>
+<p>$\alpha=1,\alpha=10$的时候效果还不错，都能收敛<br>$$\alpha = 1$$<br><img src="http://7xl294.com1.z0.glb.clouddn.com/logistic_1_mix.png" alt=""><br>$$\alpha = 20$$<br><img src="http://7xl294.com1.z0.glb.clouddn.com/logistic_10_mix.png" alt=""><br>$\alpha=100$的时候就已经无法收敛了<br>$$\alpha=100$$<br><img src="http://7xl294.com1.z0.glb.clouddn.com/logistic_100_mix.png" alt=""></p>
+<p>还送上一个彩蛋，$\alpha=1$,迭代10000次的情况，最后误差反而上升了！<br><img src="http://7xl294.com1.z0.glb.clouddn.com/logistic_10000.png" alt=""></p>
 ]]></content>
     </entry>
     
