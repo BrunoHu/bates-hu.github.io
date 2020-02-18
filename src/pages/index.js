@@ -25,7 +25,7 @@ const BlogIndex = ({ data, location }) => {
                 }}
               >
                 <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
-                  {title}
+                  {title}  | {node.frontmatter.tags}
                 </Link>
               </h3>
               <small>{node.frontmatter.date}</small>

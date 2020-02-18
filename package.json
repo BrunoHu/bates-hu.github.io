@@ -38,7 +38,7 @@
   "devDependencies": {
     "prettier": "^1.19.1"
   },
-  "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
+  "homepage": "./",
   "keywords": [
     "gatsby"
   ],
@@ -50,6 +50,8 @@
   },
   "scripts": {
     "build": "gatsby build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
