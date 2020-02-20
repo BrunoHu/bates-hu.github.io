@@ -1,51 +1,37 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-
 import Bio from "../components/bio"
-import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { rhythm, scale } from "../utils/typography"
+import Layout from "../components/Layout"
+import "../mystyles.scss"
+require(`katex/dist/katex.min.css`)
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
+
   const post = data.markdownRemark
-  const siteTitle = data.site.siteMetadata.title
   const { previous, next } = pageContext
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout>
       <SEO
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
       />
-      <article>
+      <article class="content">
         <header>
-          <h1
-            style={{
-              marginTop: rhythm(1),
-              marginBottom: 0,
-            }}
-          >
-            {post.frontmatter.title}
-          </h1>
-          <p
-            style={{
-              ...scale(-1 / 5),
-              display: `block`,
-              marginBottom: rhythm(1),
-            }}
-          >
-            {post.frontmatter.date}
-          </p>
+          <h1 class="title has-text-black">{post.frontmatter.title}</h1>
+          <h6 class="subtitle is-spaced">{post.frontmatter.date}</h6>
+          <div class="tags">
+            {post.frontmatter.tags.map(tag => (
+              <Link to={"tag/" + tag} class="tag is-spaced">
+                {tag}
+              </Link>
+            ))}
+          </div>
         </header>
+        <hr />
         <section dangerouslySetInnerHTML={{ __html: post.html }} />
-        <hr
-          style={{
-            marginBottom: rhythm(1),
-          }}
-        />
-        <footer>
-          <Bio />
-        </footer>
+        <hr />
       </article>
 
       <nav>

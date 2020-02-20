@@ -1,24 +1,17 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
-
+import { graphql } from "gatsby"
 import "../mystyles.scss"
 import SEO from "../components/seo"
 import Layout from "../components/Layout"
 import PostCard from "../components/postcard"
 
-const BlogIndex = ({ data, location }) => {
+const BlogIndex = ({data}) => {
   const posts = data.allMarkdownRemark.edges
 
-  console.log(posts)
-
-  const count = posts.length
-  
   return (
       <Layout>
       <SEO title="All posts" />
-      <h1 class="title has-text-black is-1">Recent Blogs</h1>
-      <hr />
-      {posts.slice(0, 5).map(({ node }) => {
+      {posts.map(({ node }) => {
         const title = node.frontmatter.title || node.fields.slug
         return (
           <PostCard 
@@ -27,10 +20,9 @@ const BlogIndex = ({ data, location }) => {
             desc={node.frontmatter.description || node.excerpt}
             tags={node.frontmatter.tags}
             slug={node.fields.slug}
-          />    
+          />
         )
       })}
-      {count > 5 ? <Link className="button is-rounded" to="archive">More Posts</Link> : <div></div>}
       </Layout>
   )
 }
@@ -38,13 +30,13 @@ const BlogIndex = ({ data, location }) => {
 export default BlogIndex
 
 export const pageQuery = graphql`
-  query {
+  query($targetTag: String!) {
     site {
       siteMetadata {
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(filter: {frontmatter: {tags: {eq: $targetTag}}}, sort: {fields: frontmatter___date, order: DESC}) {
       edges {
         node {
           excerpt
