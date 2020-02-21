@@ -1,8 +1,6 @@
 ---
 title: logistic分类器
 date: 2016-06-17 16:26:47
-description: desc
-mathjax: true
 tags:
 - math
 - machine learning
@@ -15,7 +13,7 @@ tags:
 $$g(x)=\frac{1}{1+e^{-x}}$$
 
 图像如下，很明显可以看出越靠近零点斜率变化越大，函数在0点附近急剧的变化到0和1，这正是两个非常适于数学处理的离散值。
-![](http://7xl294.com1.z0.glb.clouddn.com/sigmoid.png)
+![](http://q60sj4uk2.bkt.clouddn.com/sigmoid.png)
 
 而基于线性回归，我们可以用一条线（或者说是超平面）来分割点集来得到分类的效果，那么我们可以通过刚才介绍的logistic函数来的到离散化的反馈结果来进行优化。那么我们的预测函数$h_\theta (x)$如下
 
@@ -75,25 +73,25 @@ $$ \theta_j := \theta_j - \alpha \left[h_\theta (x^{(i)}) - y^{(i)} \right] x_j^
 
 突然发现两类数据有超平面可以完全分开的时候，$\alpha$取多少都无所谓，原因不明，待思考~
 $$\alpha = 1$$
-![](http://7xl294.com1.z0.glb.clouddn.com/logistic_1.png)
+![](http://q60sj4uk2.bkt.clouddn.com/logistic_1.png)
 $$\alpha = 20$$
-![](http://7xl294.com1.z0.glb.clouddn.com/logistic_20.png)
+![](http://q60sj4uk2.bkt.clouddn.com/logistic_20.png)
 $$\alpha = 100$$
-![](http://7xl294.com1.z0.glb.clouddn.com/logistic_100.png)
+![](http://q60sj4uk2.bkt.clouddn.com/logistic_100.png)
 
 但是当不能完全分开的时候，取得alpha过大的话会在极值处徘徊无法收敛~
 
 $\alpha=1,\alpha=10$的时候效果还不错，都能收敛
 $$\alpha = 1$$
-![](http://7xl294.com1.z0.glb.clouddn.com/logistic_1_mix.png)
+![](http://q60sj4uk2.bkt.clouddn.com/logistic_1_mix.png)
 $$\alpha = 10$$
-![](http://7xl294.com1.z0.glb.clouddn.com/logistic_10_mix.png)
+![](http://q60sj4uk2.bkt.clouddn.com/logistic_10_mix.png)
 $\alpha=100$的时候就已经无法收敛了
 $$\alpha=100$$
-![](http://7xl294.com1.z0.glb.clouddn.com/logistic_100_mix.png)
+![](http://q60sj4uk2.bkt.clouddn.com/logistic_100_mix.png)
 
 还送上一个彩蛋，$\alpha=1$,迭代10000次的情况，最后误差反而上升了！
-![](http://7xl294.com1.z0.glb.clouddn.com/logistic_10000.png)
+![](http://q60sj4uk2.bkt.clouddn.com/logistic_10000.png)
 
 
 

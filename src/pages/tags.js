@@ -8,8 +8,7 @@ import Layout from "../components/Layout"
 const Tags = ({ data }) => {
   const posts = data.allMarkdownRemark.edges
   var tagMap = new Map()
-  console.log("------")
-  console.log(posts)
+
 
   for (const post of posts) {
     for (const tag of post.node.frontmatter.tags) {
@@ -20,15 +19,8 @@ const Tags = ({ data }) => {
       }
     }
   }
-
   var tagPair = Array.from(tagMap)
-  console.log("tagmap1")
-  console.log(tagPair)
-
   tagPair.sort((left, right) => right[1] - left[1])
-
-  console.log("tagmap2")
-  console.log(tagPair)
   return (
     <Layout>
       <SEO title="Tags" />

@@ -11,15 +11,12 @@ const Archive = ({ data }) => {
   var yearPosts = new Map()
 
   for (var post of posts) {
-    console.log(post)
     const year = post.node.frontmatter.date
     if (!yearPosts.has(year)) {
       yearPosts.set(year, [])
     }
     yearPosts.get(year).push(post)
   }
-
-  console.log(yearPosts)
 
   const convertPosts = post => {
     const title = post.node.frontmatter.title

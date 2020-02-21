@@ -6,8 +6,6 @@ exports.createPages = async (node) => {
   // { graphql, actions }
   const graphql = node.graphql
   const actions = node.actions
-  console.log("-------createPages-------")
-  console.log({node})
 
   const { createPage } = actions
 

@@ -17,7 +17,7 @@ const BlogIndex = ({data}) => {
           <PostCard 
             title={title} 
             date={node.frontmatter.date}
-            desc={node.frontmatter.description || node.excerpt}
+            desc={node.excerpt}
             tags={node.frontmatter.tags}
             slug={node.fields.slug}
           />
@@ -39,14 +39,13 @@ export const pageQuery = graphql`
     allMarkdownRemark(filter: {frontmatter: {tags: {eq: $targetTag}}}, sort: {fields: frontmatter___date, order: DESC}) {
       edges {
         node {
-          excerpt
+          excerpt(truncate: true)
           fields {
             slug
           }
           frontmatter {
             date(formatString: "MMMM DD, YYYY")
             title
-            description
             tags
           }
         }

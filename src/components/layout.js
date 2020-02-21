@@ -23,9 +23,9 @@ const Layout = ({ children }) => {
         aria-label="main navigation"
       >
         <div class="navbar-brand">
-          <a class="navbar-item" href="/">
-            <img src={data.file.publicURL} width="112" height="28" />
-          </a>
+          <Link className="navbar-item" to=".">
+            <img src={data.file.publicURL} width="150" height="50" />
+          </Link>
           {/* <h2 class="title"><Link class="navbar-item" href="." >Babel Blog</Link></h2> */}
           <a
             role="button"
@@ -55,7 +55,7 @@ const Layout = ({ children }) => {
         <div class="content has-text-centered">
           <p>
             This website is designed by<strong> Bates Hu</strong> and powered by
-            <a href="https://www.gastsbyjs.org"> Gatsby.js</a> and
+            <a href="https://www.gatsbyjs.org"> Gatsby.js</a> and
             <a href="https://bulma.io"> Bulma</a>.
           </p>
           <p>

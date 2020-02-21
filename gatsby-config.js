@@ -1,5 +1,6 @@
 module.exports = {
   pathPrefix: "/test-blog",
+  assetPrefix: ".",
   siteMetadata: {
     title: `Gatsby Starter Blog`,
     author: `Bingcheng Hu`,
@@ -28,6 +29,7 @@ module.exports = {
     {
       resolve: `gatsby-transformer-remark`,
       options: {
+        excerpt_separator: `<!-- end -->`,
         plugins: [
           // `gatsby-remark-mathjax`,
           {

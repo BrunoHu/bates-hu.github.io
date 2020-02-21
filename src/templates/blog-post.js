@@ -1,6 +1,5 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-import Bio from "../components/bio"
 import SEO from "../components/seo"
 import Layout from "../components/Layout"
 import "../mystyles.scss"
@@ -15,7 +14,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
     <Layout>
       <SEO
         title={post.frontmatter.title}
-        description={post.frontmatter.description || post.excerpt}
+        description={post.excerpt}
       />
       <article class="content">
         <header>
@@ -75,12 +74,11 @@ export const pageQuery = graphql`
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id
-      excerpt(pruneLength: 160)
+      excerpt(truncate: true)
       html
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
-        description
         tags
       }
     }

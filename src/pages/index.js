@@ -8,9 +8,6 @@ import PostCard from "../components/postcard"
 
 const BlogIndex = ({ data, location }) => {
   const posts = data.allMarkdownRemark.edges
-
-  console.log(posts)
-
   const count = posts.length
   
   return (
@@ -24,7 +21,7 @@ const BlogIndex = ({ data, location }) => {
           <PostCard 
             title={title} 
             date={node.frontmatter.date}
-            desc={node.frontmatter.description || node.excerpt}
+            desc={node.excerpt}
             tags={node.frontmatter.tags}
             slug={node.fields.slug}
           />    
@@ -47,14 +44,13 @@ export const pageQuery = graphql`
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {
-          excerpt
+          excerpt(truncate: true)
           fields {
             slug
           }
           frontmatter {
             date(formatString: "MMMM DD, YYYY")
             title
-            description
             tags
           }
         }
