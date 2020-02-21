@@ -77,7 +77,7 @@ def distance(point1, point2, demension=2):
 # k-means效果
 同样在github/garage中有一个测试这个算法的的测试文件[test_kmeans.py](https://github.com/Arnold-Hu/garage/blob/master/test_kmeans.py)，没有按照单元测试的写法那么严格，主要是为了作出效果图顺便练练做图。
 效果图如下：
-![](http://7xl294.com1.z0.glb.clouddn.com/test_kmeans.png)
+![](http://q60sj4uk2.bkt.clouddn.com/test_kmeans.png)
 
 # 有关的bug
 * 列表中的列表的复制

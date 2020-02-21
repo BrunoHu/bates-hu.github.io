@@ -1,12 +1,9 @@
 {
-  "name": "gatsby-starter-blog",
+  "name": "bate-hu-personal-web",
   "private": true,
-  "description": "A starter for a blog powered by Gatsby and Markdown",
+  "description": "Bates Hu's personal web",
   "version": "0.1.0",
   "author": "Bates Hu <hubingcheng.hbc@gmail.com>",
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
-  },
   "dependencies": {
     "bulma": "^0.8.0",
     "gatsby": "^2.19.7",
@@ -52,10 +49,6 @@
   ],
   "license": "MIT",
   "main": "n/a",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
-  },
   "scripts": {
     "build": "gatsby build",
     "deploy": "gatsby build && gh-pages -d public -b master",

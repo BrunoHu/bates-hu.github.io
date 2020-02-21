@@ -5,12 +5,15 @@ import SEO from "../components/seo"
 import Layout from "../components/Layout"
 import PostCard from "../components/postcard"
 
-const BlogIndex = ({data}) => {
+const BlogIndex = ({data, pageContext}) => {
   const posts = data.allMarkdownRemark.edges
 
   return (
       <Layout>
       <SEO title="All posts" />
+      <h1 class="title has-text-black">Posts for tag:  <span class="tag is-large is-info">{pageContext.targetTag}</span></h1>
+      <p class="subtitle">{posts.length + " posts"}</p>
+      <hr />
       {posts.map(({ node }) => {
         const title = node.frontmatter.title || node.fields.slug
         return (

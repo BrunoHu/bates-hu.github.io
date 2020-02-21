@@ -1,12 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
-    author: `Bingcheng Hu`,
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
-    social: {
-      twitter: `kylemathews`,
-    },
+    title: `Bates Hu`,
+    author: `Bates Hu`,
+    description: `Personal Web of Bates Hu`,
+    siteUrl: `https://bates-hu.github.io/`,
   },
   plugins: [
     `gatsby-plugin-sass`,
@@ -68,13 +65,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `Bates-Hu`,
+        short_name: `Bate-Hu`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`,
+        icon: `content/assets/B.png`,
       },
     },
     `gatsby-plugin-react-helmet`,
