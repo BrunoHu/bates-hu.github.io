@@ -27,6 +27,7 @@
     "gatsby-transformer-remark": "^2.6.52",
     "gatsby-transformer-sharp": "^2.3.13",
     "katex": "^0.11.1",
+    "moment": "^2.24.0",
     "node-sass": "^4.13.1",
     "prismjs": "^1.19.0",
     "react": "^16.12.0",
@@ -56,6 +57,7 @@
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
+    "new": "node gen-new-post.js $*",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   }

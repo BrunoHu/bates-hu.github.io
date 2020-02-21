@@ -1,7 +1,6 @@
 ---
 title: leetcode记（持续更新中）
 date: 2016-02-29 17:45:58
-description:
 tags:
 - 算法
 - python
