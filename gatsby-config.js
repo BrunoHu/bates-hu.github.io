@@ -1,6 +1,4 @@
 module.exports = {
-  pathPrefix: "/test-blog",
-  assetPrefix: ".",
   siteMetadata: {
     title: `Gatsby Starter Blog`,
     author: `Bingcheng Hu`,
