@@ -95,7 +95,7 @@ Github主页: [github.com](github.com)
 [Github Pages的官方文档](https://help.github.com/categories/github-pages-basics/)
 Github Pages分两种，一种是个人的，建立如同username.github.io这样的个人页面或者组织页面，另一种是项目页面。我们用的是第一种页面。
 首先我们要建立一个Github仓库(respository)，登录github之后在页面的右上角有个加号，点击之后选择create new respository就可以建立一个新的个人仓库了。
-![](http://q60sj4uk2.bkt.clouddn.com/2015-08-13%2013%3A33%3A47屏幕截图.png)
+![hexo1.png](https://raw.githubusercontent.com/bates-hu/Images/master/blog/hexo1.png)
 在Repository name中填写项目名称，形式是username.github.io。
 
 > 注意！username一定要和Owner里的名字相同，比如我只能写Arnold-Hu.github.io，githab不支持其他的写法作为github pages.
@@ -222,7 +222,7 @@ deploy:
 
 推荐使用DNSpod，稳定，在中国，效果好，快，免费。
 先注册DNSpod，然后添加域名，把你的买来的域名输入进之后按下图进行添加记录
-![](http://q60sj4uk2.bkt.clouddn.com/dns.png)
+![hexo2.png](https://raw.githubusercontent.com/bates-hu/Images/master/blog/hexo2.png)
 其中A的两条记录是指向github pages的服务器，我写文章的时候ip地址是这两个，但他可能会发生更改，一旦发现你博客上不去了，就可以取[这里](https://help.github.com/articles/tips-for-configuring-an-a-record-with-your-dns-provider/)看看github pages的ip地址有没有换过。
 然后www那个是你在github注册的仓库，照着我的格式写就行了，仓库换成你的。
 
@@ -288,7 +288,7 @@ tips：你写出的文章会全部显示在主页上，如果不想全部显示�
 
 yilia作为一个华人开发的主题对多说的支持非常友好。
 首先在多说先注册一个账户
-![](http://q60sj4uk2.bkt.clouddn.com/多说.png)
+![hexo3.png](https://raw.githubusercontent.com/bates-hu/Images/master/blog/hexo3.png)
 如图，这是我的相应信息.
 只需要把 HEXO/theme/yilia/_config.yml中的duoshuo:设置为
 `duoshuo: shortname`
