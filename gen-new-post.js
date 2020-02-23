@@ -4,7 +4,7 @@ var moment = require('moment');
 var fs = require("fs");
 
 var template = "---\ntitle: {title}\ndate: {date}\ntags: \n---\nhere to write content"
-var date = new moment().format("YYYY-MM-DD, HH:MM:SS")
+var date = new moment().format("YYYY-MM-DD HH:MM:SS")
 var title = process.argv[2]
 
 if (process.argv.length <= 2) {
