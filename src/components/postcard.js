@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
+import Comment from "../components/comment"
 import "../mystyles.scss"
 const PostCard = (prop) => {
     // (title, date, desc, tags)
@@ -27,7 +28,6 @@ const PostCard = (prop) => {
           {prop.tags.map(tag => <Link to={"tag/" + tag} className="tag">{tag}</Link>)}
           </div>
         </div>
-        
     )
 }
 

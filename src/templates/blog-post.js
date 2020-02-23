@@ -2,6 +2,8 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import SEO from "../components/seo"
 import Layout from "../components/Layout"
+import Comment from "../components/comment"
+
 import "../mystyles.scss"
 require(`katex/dist/katex.min.css`)
 
@@ -59,6 +61,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           </li>
         </ul>
       </nav>
+      <Comment />
     </Layout>
   )
 }
