@@ -3,6 +3,7 @@ import { Link, useStaticQuery, graphql } from "gatsby"
 import { FaGithub, FaLinkedin } from "react-icons/fa"
 import { MdMail } from "react-icons/md"
 import { AiFillZhihuSquare } from "react-icons/ai"
+import { OutboundLink } from "gatsby-plugin-google-analytics"
 import "../mystyles.scss"
 
 const Layout = ({ children }) => {
@@ -27,7 +28,7 @@ const Layout = ({ children }) => {
             <img src={data.file.publicURL} width="150" height="50" />
           </Link>
           {/* <h2 class="title"><Link class="navbar-item" href="." >Babel Blog</Link></h2> */}
-          <a
+          <Link
             role="button"
             class={"navbar-burger" + active}
             aria-label="menu"
@@ -39,7 +40,7 @@ const Layout = ({ children }) => {
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
-          </a>
+          </Link>
         </div>
         <div class={"navbar-menu" + active} id="navMenu">
           <div class="navbar-end">
@@ -55,15 +56,15 @@ const Layout = ({ children }) => {
         <div class="content has-text-centered">
           <p>
             This website is designed by<strong> Bates Hu</strong> and powered by
-            <a href="https://www.gatsbyjs.org"> Gatsby.js</a> and
-            <a href="https://bulma.io"> Bulma</a>.
+            <OutboundLink href="https://www.gatsbyjs.org"> Gatsby.js</OutboundLink> and
+            <OutboundLink href="https://bulma.io"> Bulma</OutboundLink>.
           </p>
           <p>
             Contact:
-            <span class="icon is-medium"><a className="has-text-dark" href="https://github.com/bates-hu"><FaGithub /></a></span>
-            <span class="icon is-medium"><a className="has-text-dark" href="mailto:hubingcheng.hbc@gmail.com"><MdMail /></a></span>
-            <span class="icon is-medium"><a className="has-text-dark" href="https://www.linkedin.com/in/bingchenghu"><FaLinkedin /></a></span>
-            <span class="icon is-medium"><a className="has-text-dark" href="https://www.zhihu.com/people/hu-cheng-cheng-66"><AiFillZhihuSquare /></a></span>
+            <span class="icon is-medium"><OutboundLink className="has-text-dark" href="https://github.com/bates-hu"><FaGithub /></OutboundLink></span>
+            <span class="icon is-medium"><OutboundLink className="has-text-dark" href="mailto:hubingcheng.hbc@gmail.com"><MdMail /></OutboundLink></span>
+            <span class="icon is-medium"><OutboundLink className="has-text-dark" href="https://www.linkedin.com/in/bingchenghu"><FaLinkedin /></OutboundLink></span>
+            <span class="icon is-medium"><OutboundLink className="has-text-dark" href="https://www.zhihu.com/people/hu-cheng-cheng-66"><AiFillZhihuSquare /></OutboundLink></span>
           </p>
         </div>
       </footer>

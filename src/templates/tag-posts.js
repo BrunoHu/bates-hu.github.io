@@ -10,7 +10,7 @@ const BlogIndex = ({data, pageContext}) => {
 
   return (
       <Layout>
-      <SEO title="All posts" />
+      <SEO title="Tag posts" />
       <h1 class="title has-text-black">Posts for tag:  <span class="tag is-large is-info">{pageContext.targetTag}</span></h1>
       <p class="subtitle">{posts.length + " posts"}</p>
       <hr />

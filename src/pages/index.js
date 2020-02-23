@@ -12,7 +12,7 @@ const BlogIndex = ({ data, location }) => {
   
   return (
       <Layout>
-      <SEO title="All posts" />
+      <SEO title="Home" />
       <h1 class="title has-text-black is-1">Recent Blogs</h1>
       <hr />
       {posts.slice(0, 5).map(({ node }) => {
