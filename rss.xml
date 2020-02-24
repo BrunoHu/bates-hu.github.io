@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Bates Hu]]></title><description><![CDATA[Personal Web of Bates Hu]]></description><link>https://bates-hu.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 24 Feb 2020 07:37:36 GMT</lastBuildDate><item><title><![CDATA[半年总结]]></title><description><![CDATA[…]]></description><link>https://bates-hu.github.io/半年总结/</link><guid isPermaLink="false">https://bates-hu.github.io/半年总结/</guid><pubDate>Sun, 23 Feb 2020 22:03:30 GMT</pubDate><content:encoded>&lt;h3&gt;前言&lt;/h3&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Bates Hu]]></title><description><![CDATA[Personal Web of Bates Hu]]></description><link>https://bates-hu.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 24 Feb 2020 07:42:41 GMT</lastBuildDate><item><title><![CDATA[半年总结]]></title><description><![CDATA[…]]></description><link>https://bates-hu.github.io/半年总结/</link><guid isPermaLink="false">https://bates-hu.github.io/半年总结/</guid><pubDate>Sun, 23 Feb 2020 22:03:30 GMT</pubDate><content:encoded>&lt;h3&gt;前言&lt;/h3&gt;
 &lt;p&gt;本来是很早就写好的，一直拖延到我博客才上传。。&lt;/p&gt;
 &lt;p&gt;来美国的第一个学期结束了，现在正在寒假，回顾一下这一年把&lt;/p&gt;
 &lt;h3&gt;申请背景&lt;/h3&gt;
@@ -12,7 +12,7 @@
 &lt;h3&gt;和中介斗智斗勇&lt;/h3&gt;
 &lt;p&gt;题外话，最后我让中介给我退钱了，他们说合同上只退60%，但是我拿给我负责的中介的业余知识说你们的工作不负责没水平，如果不退全款我就直接去各个学校实名发帖diss你们。撕逼了一点各让一步，退了70%。我真的是，要不是我觉得留学这个营销费用太高，这只要蒙了一个进来，啥事不做都能收40%这也太赚了，心里痒痒也想去搞留学了。就申请学校这工作量，真的是赚信息不平等的钱。&lt;/p&gt;
 &lt;h3&gt;港大面试和申请总结&lt;/h3&gt;
-&lt;p&gt;搞定文书我只花了两个礼拜，中间还穿插了回母校去办学位学历的翻译件。之后一月初我就往美国投了十家，其中两家是neu IS 和 pittU 的 IS，其他的都是cs。只要是对gpa和toefl和gre没有明确要求说达不到的我基本都投了。最后发现cs真的是神仙打架。&lt;code class=&quot;language-text&quot;&gt;02/07&lt;/code&gt;neu给我发邮件说通过了，&lt;code class=&quot;language-text&quot;&gt;03/24&lt;/code&gt; pitt也说通过了。除了美国，同时我也投了港三校做保底，最后也只有港大让我去面试，我还记得是某个周六在三元桥的香格里拉，当时还忘了带邮件提醒要带的铅笔还跑的满身汗去附近的超时买铅笔，结果发现根本不用。。面试是先一个笔试再一个面试，笔试是真的很水，两道编程题，两道都算是leetcode里面比较容易的medium甚至可以算是easy。最难的反而是一个不定积分，因为很久没用过我一开始都忘了，后面硬是靠记忆拼凑把公式推出来了。之后就是面试，两个教授就问了一些很简单的问题，不过全程是英文的。就是先自我介绍一遍然后从经历或者课程里开始问。和我一起面试的同学大部分真的是表现比较一般，吃了英语不好的亏，其从有个是通信的问了一个什么是傅里叶半天说不上来，问了编程里的多态也说不清楚，全程只有我和另外一个在msra实习的同学能有来有回（最后他也去康奈尔读了cs master了）。最后不出意外，港大的cs msc offer也拿了。也是我唯一一个真正的cs master。最后我还是选了在seattle的neu，在真正的西方世界接触一下，工作一段时间感受一下。结果还好没去香港，发生暴乱了。。。&lt;/p&gt;
+&lt;p&gt;搞定文书我只花了两个礼拜，中间还穿插了回母校去办学位学历的翻译件。之后一月初我就往美国投了十家，其中两家是neu IS 和 pittU 的 IS，其他的都是cs。只要是对gpa和toefl和gre没有明确要求说达不到的我基本都投了。最后发现cs真的是神仙打架。&lt;strong&gt;02/07&lt;/strong&gt;neu给我发邮件说通过了，&lt;strong&gt;03/24&lt;/strong&gt; pitt也说通过了。除了美国，同时我也投了港三校做保底，最后也只有港大让我去面试，我还记得是某个周六在三元桥的香格里拉，当时还忘了带邮件提醒要带的铅笔还跑的满身汗去附近的超时买铅笔，结果发现根本不用。。面试是先一个笔试再一个面试，笔试是真的很水，两道编程题，两道都算是leetcode里面比较容易的medium甚至可以算是easy。最难的反而是一个不定积分，因为很久没用过我一开始都忘了，后面硬是靠记忆拼凑把公式推出来了。之后就是面试，两个教授就问了一些很简单的问题，不过全程是英文的。就是先自我介绍一遍然后从经历或者课程里开始问。和我一起面试的同学大部分真的是表现比较一般，吃了英语不好的亏，其从有个是通信的问了一个什么是傅里叶半天说不上来，问了编程里的多态也说不清楚，全程只有我和另外一个在msra实习的同学能有来有回（最后他也去康奈尔读了cs master了）。最后不出意外，港大的cs msc offer也拿了。也是我唯一一个真正的cs master。最后我还是选了在seattle的neu，在真正的西方世界接触一下，工作一段时间感受一下。结果还好没去香港，发生暴乱了。。。&lt;/p&gt;
 &lt;h3&gt;Seattle前期准备&lt;/h3&gt;
 &lt;p&gt;接了offer之后就是开始找房啊，联系英语啊，联系在西雅图的朋友啊，刷leetcode啊之类的。非常感谢在西雅图的伟涛和达然两个小伙伴帮我看房。有朋友就是好哈哈。工作上也开始慢慢的把一些比较有价值的工作让给其他同事，自己担一些救火和边角活给其他人做支持，同事也整理自己的工作，分享自己的经验帮同事能有所提升。7月1号辞职之后就回家浪了两个月，之后就到美国拉。&lt;/p&gt;
 &lt;h3&gt;找实习&lt;/h3&gt;
@@ -20,7 +20,7 @@
 &lt;p&gt;结论就是，你最想去的公司一定要最早面，因为真的是太慢了。特别想念当时在小米一个下午面完，第二天发offer的时候。&lt;/p&gt;
 &lt;h3&gt;课程&lt;/h3&gt;
 &lt;p&gt;就课程而言，我觉得虽然课程基本上都视偏应用，难度不大，但是老师目前遇到的都很负责，有很强的工业界经验。对于转专业和找工作帮助很大。如果你有学术追求，还是别来了，尤其是西雅图和硅谷分校。里面有些课属于巩固知识，比如OOD课和算法课，其中比较重要的就是通过教授了解工业界的主流观点。就比如OOD的老师就会讲一些在工业界中写代码的最佳实践，其中有一些其实和国内稍微有点出入。比较特殊的是，学校还有一个专门的求职课，相比于国内毛用没有的求职指导真的是天上地下。真的会教你怎么改简历，怎么写linkedin，怎么和别人建立connection，模拟面试，怎么写邮件，怎么适应美国的文化，还有最近有什么活动可以参与，如何理解美国的职场文化等。帮助非常大。怪不得东北大学是全美大学中求职辅助排名第一。&lt;/p&gt;
-&lt;h4&gt;生活&lt;/h4&gt;
+&lt;h3&gt;生活&lt;/h3&gt;
 &lt;p&gt;生活而言，直观感受就是换成人民币的话，物价是真的贵。房租动不动就1000刀以上，买点蔬菜就是两三刀一斤，唯一值得安慰的就是猪肉打折的时候比国内便宜很多哈哈。不仅是房租，在外面吃饭也比国内贵很多，同时还有小费。所以厨艺大有长进。不过如果换成美元的收入的话就真的感觉还是很舒服的。amazon的实习工资一个月就是我在北京的工资好几倍了，心酸。西雅图的冬天白天真的很短而且与特别多这点让人容易抑郁。但是风景真的很好，十分推荐。下图是我今天去的Dicovery Park。这竟然只是一个城市公园，爱了。
 &lt;img src=&quot;https://raw.githubusercontent.com/bates-hu/Images/master/blog/seattle_beach.JPG&quot; alt=&quot;seattle_beach.JPG&quot;&gt;&lt;/p&gt;
 &lt;h3&gt;总结&lt;/h3&gt;
