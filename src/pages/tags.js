@@ -41,7 +41,6 @@ const Tags = ({ data }) => {
           )
         })}
       </div>
-      <Comment />
     </Layout>
   )
 }
