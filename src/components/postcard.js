@@ -1,6 +1,5 @@
 import React from "react"
 import { Link } from "gatsby"
-import Comment from "../components/comment"
 import "../mystyles.scss"
 const PostCard = (prop) => {
     // (title, date, desc, tags)

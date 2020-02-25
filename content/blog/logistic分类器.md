@@ -13,7 +13,7 @@ tags:
 $$g(x)=\frac{1}{1+e^{-x}}$$
 
 图像如下，很明显可以看出越靠近零点斜率变化越大，函数在0点附近急剧的变化到0和1，这正是两个非常适于数学处理的离散值。
-![logistic_1.png](https://raw.githubusercontent.com/bates-hu/Images/master/blog/logistic_1.png)
+![logistic_1.png](https://bates-hu-blog-1256120017.cos.ap-shanghai.myqcloud.com/undefinedlogistic_1.png)
 
 而基于线性回归，我们可以用一条线（或者说是超平面）来分割点集来得到分类的效果，那么我们可以通过刚才介绍的logistic函数来的到离散化的反馈结果来进行优化。那么我们的预测函数$h_\theta (x)$如下
 
@@ -73,25 +73,25 @@ $$ \theta_j := \theta_j - \alpha \left[h_\theta (x^{(i)}) - y^{(i)} \right] x_j^
 
 突然发现两类数据有超平面可以完全分开的时候，$\alpha$取多少都无所谓，原因不明，待思考~
 $$\alpha = 1$$
-![logistic_2.png](https://raw.githubusercontent.com/bates-hu/Images/master/blog/logistic_2.png)
+![logistic_2.png](https://bates-hu-blog-1256120017.cos.ap-shanghai.myqcloud.com/undefinedlogistic_2.png)
 $$\alpha = 20$$
-![logistic_3.png](https://raw.githubusercontent.com/bates-hu/Images/master/blog/logistic_3.png)
+![logistic_3.png](https://bates-hu-blog-1256120017.cos.ap-shanghai.myqcloud.com/undefinedlogistic_3.png)
 $$\alpha = 100$$
-![logistic_4.png](https://raw.githubusercontent.com/bates-hu/Images/master/blog/logistic_4.png)
+![logistic_4.png](https://bates-hu-blog-1256120017.cos.ap-shanghai.myqcloud.com/undefinedlogistic_4.png)
 
 但是当不能完全分开的时候，取得alpha过大的话会在极值处徘徊无法收敛~
 
 $\alpha=1,\alpha=10$的时候效果还不错，都能收敛
 $$\alpha = 1$$
-![logistic_5.png](https://raw.githubusercontent.com/bates-hu/Images/master/blog/logistic_5.png)
+![logistic_5.png](https://bates-hu-blog-1256120017.cos.ap-shanghai.myqcloud.com/undefinedlogistic_5.png)
 $$\alpha = 10$$
-![logistic_10.png](https://raw.githubusercontent.com/bates-hu/Images/master/blog/logistic_10.png)
+![logistic_6.png](https://bates-hu-blog-1256120017.cos.ap-shanghai.myqcloud.com/undefinedlogistic_6.png)
 $\alpha=100$的时候就已经无法收敛了
 $$\alpha=100$$
-![logistic_7.png](https://raw.githubusercontent.com/bates-hu/Images/master/blog/logistic_7.png)
+![logistic_7.png](https://bates-hu-blog-1256120017.cos.ap-shanghai.myqcloud.com/undefinedlogistic_7.png)
 
 还送上一个彩蛋，$\alpha=1$,迭代10000次的情况，最后误差反而上升了！
-![logistic_8.png](https://raw.githubusercontent.com/bates-hu/Images/master/blog/logistic_8.png)
+![logistic_8.png](https://bates-hu-blog-1256120017.cos.ap-shanghai.myqcloud.com/undefinedlogistic_8.png)
 
 
 

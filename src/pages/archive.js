@@ -19,7 +19,6 @@ const Archive = ({ data }) => {
   }
 
   const convertPosts = post => {
-    const title = post.node.frontmatter.title
     return (
       <li>
         <Link to={"blog" + post.node.fields.slug}>{post.node.frontmatter.title}</Link>

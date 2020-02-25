@@ -25,14 +25,14 @@ const Layout = ({ children }) => {
       >
         <div class="navbar-brand">
           <Link className="navbar-item" to=".">
-            <img src={data.file.publicURL} width="150" height="50" />
+            <img src={data.file.publicURL} width="150" height="50" alt="bates-hu" />
           </Link>
-          {/* <h2 class="title"><Link class="navbar-item" href="." >Babel Blog</Link></h2> */}
           <a
-            type="button"
+            role="button"
             className={"navbar-burger" + active}
             aria-label="menu"
             aria-expanded="false"
+            data-target="navMenu"
             onClick={() =>
               active === "" ? setActive(" is-active") : setActive("")
             }

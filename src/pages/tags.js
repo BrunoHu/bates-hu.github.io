@@ -4,7 +4,6 @@ import { Link, graphql } from "gatsby"
 import "../mystyles.scss"
 import SEO from "../components/seo"
 import Layout from "../components/Layout"
-import Comment from "../components/comment"
 
 const Tags = ({ data }) => {
   const posts = data.allMarkdownRemark.edges
