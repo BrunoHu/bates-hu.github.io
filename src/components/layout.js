@@ -28,9 +28,9 @@ const Layout = ({ children }) => {
             <img src={data.file.publicURL} width="150" height="50" />
           </Link>
           {/* <h2 class="title"><Link class="navbar-item" href="." >Babel Blog</Link></h2> */}
-          <Link
-            role="button"
-            class={"navbar-burger" + active}
+          <button
+            type="button"
+            className={"navbar-burger" + active}
             aria-label="menu"
             aria-expanded="false"
             onClick={() =>
@@ -40,7 +40,7 @@ const Layout = ({ children }) => {
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
-          </Link>
+          </button>
         </div>
         <div class={"navbar-menu" + active} id="navMenu">
           <div class="navbar-end">
