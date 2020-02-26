@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Bates Hu]]></title><description><![CDATA[Personal Web of Bates Hu]]></description><link>https://bates-hu.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 25 Feb 2020 02:57:19 GMT</lastBuildDate><item><title><![CDATA[半年总结]]></title><description><![CDATA[…]]></description><link>https://bates-hu.github.io/半年总结/</link><guid isPermaLink="false">https://bates-hu.github.io/半年总结/</guid><pubDate>Sun, 23 Feb 2020 22:03:30 GMT</pubDate><content:encoded>&lt;h3&gt;前言&lt;/h3&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Bates Hu]]></title><description><![CDATA[Personal Web of Bates Hu]]></description><link>https://bates-hu.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 26 Feb 2020 10:31:30 GMT</lastBuildDate><item><title><![CDATA[半年总结]]></title><description><![CDATA[…]]></description><link>https://bates-hu.github.io/半年总结/</link><guid isPermaLink="false">https://bates-hu.github.io/半年总结/</guid><pubDate>Sun, 23 Feb 2020 22:03:30 GMT</pubDate><content:encoded>&lt;h3&gt;前言&lt;/h3&gt;
 &lt;p&gt;本来是很早就写好的，一直拖延到我博客才上传。。&lt;/p&gt;
 &lt;p&gt;来美国的第一个学期结束了，现在正在寒假，回顾一下这一年把&lt;/p&gt;
 &lt;h3&gt;申请背景&lt;/h3&gt;
@@ -1724,79 +1724,7 @@ print ‘这个数独无解’&lt;/p&gt;
 ## to do
 * 测试算法速度
 * 生成朝鸡难的数独
-* 优化算法&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[python和数据库的接口简介]]></title><description><![CDATA[刚好最近在自学数据库，就特地写出来数据库和python连接的接口出来权当复习。现在比较流行的数据库一个是关系型数据库MySQL以及非关系型数据库，另外一个就是所谓的noSQL类型的文档数据库Mongodb…]]></description><link>https://bates-hu.github.io/python和数据库的接口简介/</link><guid isPermaLink="false">https://bates-hu.github.io/python和数据库的接口简介/</guid><pubDate>Sat, 30 Jan 2016 11:02:12 GMT</pubDate><content:encoded>&lt;p&gt;刚好最近在自学数据库，就特地写出来数据库和python连接的接口出来权当复习。现在比较流行的数据库一个是关系型数据库&lt;strong&gt;MySQL&lt;/strong&gt;以及非关系型数据库，另外一个就是所谓的noSQL类型的文档数据库&lt;strong&gt;Mongodb&lt;/strong&gt;。这两个都是这两方面开源软件的佼佼者，社区丰富资源多。我是不会告诉你们我只看了这俩的。&lt;/p&gt;
-&lt;h3&gt;python-MySQL接口&lt;/h3&gt;
-&lt;p&gt;首先，要安装这个接口。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;$sudo pip install python-mysql&lt;/code&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;然后，介绍一个典型的接口实现。&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;import MySQLdb
-conn = MySQLdb.connect(
-            db = &amp;#39;dbname&amp;#39;,
-            user = &amp;#39;root&amp;#39;,
-            passwd = &amp;#39;your-password&amp;#39;,
-            host = &amp;#39;localhost&amp;#39;,
-            charset = &amp;#39;utf8&amp;#39;,
-            use_unicode = True)
-cursor = conn.cursor()
-cursor.execute(&amp;quot;truncate table xiaomihr;&amp;quot;)
-conn.commit()
-cursor.execute(&amp;quot;&amp;quot;&amp;quot;INSERT INTO xiaomihr(item_id, work, worktype, location, hr_way)
-                        VALUES (%s, %s, %s, %s, %s)&amp;quot;&amp;quot;&amp;quot;,
-                        (
-                            item[&amp;#39;item_id&amp;#39;],
-                            item[&amp;#39;work&amp;#39;][0],
-                            item[&amp;#39;worktype&amp;#39;][0],
-                            item[&amp;#39;location&amp;#39;][0],
-                            item[&amp;#39;hr_way&amp;#39;][0]
-                        )
-        )
-conn.commit()&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;这个程序是摘取自一个爬虫程序最后吧数据存入数据库的阶段。总的来说，这个接口就是这么几个东西：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;建立到数据库的连接。&lt;code class=&quot;language-text&quot;&gt;conn = MySQLdb.connect(...)&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;获取数据库的游标。 &lt;code class=&quot;language-text&quot;&gt;cursor = conn.cursor()&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;给出指令。 &lt;code class=&quot;language-text&quot;&gt;cursor.exxcute(&amp;quot;truncate table xiaomihr;&amp;quot;)&lt;/code&gt;,双引号括住的是要执行的SQL语句，这个SQL语句就属于另外一个方面了，这个语句的意思是把&lt;code class=&quot;language-text&quot;&gt;xiaomihr&lt;/code&gt;这个表清空。另外一个语句则是典型的插入数据到数据库的语句&lt;code class=&quot;language-text&quot;&gt;cursor.execute(&amp;quot;&amp;quot;&amp;quot;INSERT INTO xiaomihr(...))&lt;/code&gt;,把相应的值插入对应的字段中。&lt;/li&gt;
-&lt;li&gt;提交到数据库。 &lt;code class=&quot;language-text&quot;&gt;conn.commit()&lt;/code&gt;,我觉得接触过ORM的人应该了解这个，就是把指令提交，通过连接传输到数据库执行，所有的操作后面一定要加这个，不然不会执行。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;这就是一个python-MySQL接口的典型实现。&lt;/p&gt;
-&lt;h3&gt;python-Mongodb接口&lt;/h3&gt;
-&lt;p&gt;同样，第一步安装pymongo&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;$sudo pip install pymongo&lt;/code&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;第二步也是介绍一个典型实现。&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;from pymongo import MongoClient
-
-client = MongoClient(&amp;#39;localhost&amp;#39;,27017)
-db = client[&amp;#39;xiaomihr&amp;#39;]
-collection = db[&amp;#39;hr_imfomation&amp;#39;]
-collection.remove()
-
-data = {
-&amp;#39;item_id&amp;#39; : item[&amp;#39;item_id&amp;#39;],
-&amp;#39;work&amp;#39; : item[&amp;#39;work&amp;#39;][0],
-&amp;#39;worktype&amp;#39; : item[&amp;#39;worktype&amp;#39;][0],
-&amp;#39;location&amp;#39; : item[&amp;#39;location&amp;#39;][0],
-&amp;#39;hr_way&amp;#39; : item[&amp;#39;hr_way&amp;#39;][0]}
-collection.insert(data)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;这个是同样上面那个程序在Mongodb接口下是实现。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;建立连接 &lt;code class=&quot;language-text&quot;&gt;client = MongoClient()&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;选取数据库 &lt;code class=&quot;language-text&quot;&gt;db = cliet[&amp;#39;xiaomihr&amp;#39;]&lt;/code&gt;,xiaomihr是数据库的名字。&lt;/li&gt;
-&lt;li&gt;选取集合 &lt;code class=&quot;language-text&quot;&gt;collection = db[&amp;#39;hr_imfomation&amp;#39;]&lt;/code&gt;,hr_imformation是集合的名字（类似于MySQL里的表）。&lt;/li&gt;
-&lt;li&gt;然后就几乎和mongodb本身的操作一样，不需要和MySQL接口一样把指令包装成字符串再处理，pymongo直接就和在mongodb里操作一样，清空数据库就是&lt;code class=&quot;language-text&quot;&gt;collection.remove()&lt;/code&gt;，典型的插入数据就是&lt;code class=&quot;language-text&quot;&gt;collection.insert(data)&lt;/code&gt;。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;blockquote&gt;
-&lt;p&gt;值得注意的是，在pymongo的早期版本中和现在网上的教程中，有很多给出的实现是这样的&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;connection = pymongo.Connection(&amp;#39;localhost&amp;#39;,27017)
-db = connection.test_database
-collection = db.test_collection&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;blockquote&gt;
-&lt;p&gt;这个在最新的版本中已经用不了了，官方给出的最佳实现是上面那个。&lt;/p&gt;
-&lt;/blockquote&gt;</content:encoded></item><item><title><![CDATA[暴力解决三门问题]]></title><description><![CDATA[…]]></description><link>https://bates-hu.github.io/暴力解决三门问题/</link><guid isPermaLink="false">https://bates-hu.github.io/暴力解决三门问题/</guid><pubDate>Tue, 29 Dec 2015 17:56:30 GMT</pubDate><content:encoded>&lt;h1&gt;三门问题介绍&lt;/h1&gt;
+* 优化算法&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[暴力解决三门问题]]></title><description><![CDATA[…]]></description><link>https://bates-hu.github.io/暴力解决三门问题/</link><guid isPermaLink="false">https://bates-hu.github.io/暴力解决三门问题/</guid><pubDate>Tue, 29 Dec 2015 17:56:30 GMT</pubDate><content:encoded>&lt;h1&gt;三门问题介绍&lt;/h1&gt;
 &lt;p&gt;我觉得大部分人应该听过这个有趣的问题，但是，一开始我还是简要的说明一下什么是三门问题。假设有一个电视节目，设置了三个一模一样的关闭着的门，其中有个门后面有辆兰博基尼作为奖品，而且每个门后面有奖品的概率相同，并且。现在你要选择一个，然后，主持人会在另外两扇门中打开一扇空门问你要不要更换选择。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;     换还是不换呢，这是个问题
