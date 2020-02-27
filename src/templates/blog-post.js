@@ -22,7 +22,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           <h6 class="subtitle is-spaced">{post.frontmatter.date}</h6>
           <div class="tags">
             {post.frontmatter.tags.map(tag => (
-              <Link to={"tag/" + tag} class="tag is-spaced">
+              <Link to={"/tag/" + tag} class="tag is-spaced">
                 {tag}
               </Link>
             ))}
@@ -45,16 +45,16 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         >
           <li>
             {previous && (
-              <a href={"/blog" + previous.fields.slug}>
+              <Link to={"/blog" + previous.fields.slug} rel="prev">
                 ← {previous.frontmatter.title}
-              </a>
+              </Link>
             )}
           </li>
           <li>
             {next && (
-              <a href={"/blog" + next.fields.slug}>
+              <Link to={"/blog" + next.fields.slug} rel="next">
                 {next.frontmatter.title} →
-              </a>
+              </Link>
             )}
           </li>
         </ul>
