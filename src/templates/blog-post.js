@@ -2,8 +2,6 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import SEO from "../components/seo"
 import Layout from "../components/Layout"
-import Comment from "../components/comment"
-
 import "../mystyles.scss"
 require(`katex/dist/katex.min.css`)
 
@@ -47,21 +45,20 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         >
           <li>
             {previous && (
-              <Link to={"blog" + previous.fields.slug} rel="prev">
+              <a href={"/blog" + previous.fields.slug}>
                 ← {previous.frontmatter.title}
-              </Link>
+              </a>
             )}
           </li>
           <li>
             {next && (
-              <Link to={"blog" + next.fields.slug} rel="next">
+              <a href={"/blog" + next.fields.slug}>
                 {next.frontmatter.title} →
-              </Link>
+              </a>
             )}
           </li>
         </ul>
       </nav>
-      <Comment />
     </Layout>
   )
 }

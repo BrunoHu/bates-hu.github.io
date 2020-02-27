@@ -7,7 +7,7 @@ const Comment = () => {
       <Helmet>
         <script
           src="https://cdn-city.livere.com/js/embed.dist.js"
-          async="true"
+          async="false"
           type="text/javascript"
         ></script>
       </Helmet>
