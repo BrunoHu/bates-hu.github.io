@@ -7,7 +7,6 @@ import PostCard from "../components/postcard"
 
 const BlogIndex = ({data, pageContext}) => {
   const posts = data.allMarkdownRemark.edges
-
   return (
       <Layout>
       <SEO title="Tag posts" />

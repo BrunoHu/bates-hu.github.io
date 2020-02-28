@@ -12,8 +12,6 @@ const Comment = () => {
        j.async = true;
 
        e.parentNode.insertBefore(j, e);
-       console.log("test hook")
-
     });
   return (
     <div id="lv-container" data-id="city" data-uid="MTAyMC80ODc2MS8yNTI1NQ==">
