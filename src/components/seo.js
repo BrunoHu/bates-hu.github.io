@@ -70,7 +70,7 @@ const SEO = ({ description, lang, meta, title }) => {
         },
         {
           name: `baidu-site-verification`,
-          content: `hUHvXalNlu`,
+          content: `5xrw2y7DGx`,
         },
       ].concat(meta)}
     />
