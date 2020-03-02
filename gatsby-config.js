@@ -3,7 +3,7 @@ module.exports = {
     title: `Bates Hu`,
     author: `Bates Hu`,
     description: `Personal Web of Bates Hu`,
-    siteUrl: `https://bates-hu.github.io/`,
+    siteUrl: `hubingcheng.com`,
   },
   plugins: [
     `gatsby-plugin-sass`,

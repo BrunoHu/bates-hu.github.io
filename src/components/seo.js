@@ -68,6 +68,10 @@ const SEO = ({ description, lang, meta, title }) => {
           name: `twitter:description`,
           content: metaDescription,
         },
+        {
+          name: `baidu-site-verification`,
+          content: `hUHvXalNlu`,
+        },
       ].concat(meta)}
     />
   )
