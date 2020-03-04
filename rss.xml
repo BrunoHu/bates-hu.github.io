@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Bates Hu]]></title><description><![CDATA[Personal Web of Bates Hu]]></description><link>http://hubingcheng.com</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 04 Mar 2020 02:24:06 GMT</lastBuildDate><item><title><![CDATA[markdown图片插件强力推荐]]></title><description><![CDATA[背景 一开始我写markdown的时候我用的软件是typora，因为设计的颜值很高，而且windows，mac和linux…]]></description><link>http://hubingcheng.com/markdown图片插件强力推荐/</link><guid isPermaLink="false">http://hubingcheng.com/markdown图片插件强力推荐/</guid><pubDate>Tue, 03 Mar 2020 15:04:28 GMT</pubDate><content:encoded>&lt;h3&gt;背景&lt;/h3&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Bates Hu]]></title><description><![CDATA[Personal Web of Bates Hu]]></description><link>http://hubingcheng.com</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 04 Mar 2020 04:37:19 GMT</lastBuildDate><item><title><![CDATA[markdown图片插件强力推荐]]></title><description><![CDATA[背景 一开始我写markdown的时候我用的软件是typora，因为设计的颜值很高，而且windows，mac和linux…]]></description><link>http://hubingcheng.com/markdown图片插件强力推荐/</link><guid isPermaLink="false">http://hubingcheng.com/markdown图片插件强力推荐/</guid><pubDate>Tue, 03 Mar 2020 15:04:28 GMT</pubDate><content:encoded>&lt;h3&gt;背景&lt;/h3&gt;
 &lt;p&gt;一开始我写markdown的时候我用的软件是&lt;a href=&quot;typora.io&quot;&gt;typora&lt;/a&gt;，因为设计的颜值很高，而且windows，mac和linux三端都支持。但是在写文章的时候，图片的处理就很麻烦，如果只是单纯的博客，你可以直接存在本地的静态文件夹里。但是我写文章的时候，有时候也要同步到一些其他的平台比如知乎什么的。这时候存本地就很难受，因为不能直接copy&amp;#x26;paste。所以我之前的博客，图片全部都是存在七牛云上的。&lt;/p&gt;
 &lt;h3&gt;为什么存云上&lt;/h3&gt;
 &lt;p&gt;存云上有几个好处&lt;/p&gt;
@@ -251,7 +251,7 @@ export const pageQuery = graphql`
 &lt;p&gt;本来是很早就写好的，一直拖延到我博客才上传。。&lt;/p&gt;
 &lt;p&gt;来美国的第一个学期结束了，现在正在寒假，回顾一下这一年把&lt;/p&gt;
 &lt;h3&gt;申请背景&lt;/h3&gt;
-&lt;p&gt;其实来美国深造贴金是一个在工作的时候就开始有的想法，但是一直没有付诸行动， 直到我在北京遇到的女朋友她要出去交换的时候我才开始真正着手这件事情，然后同事中也有一个想要出国镀金，和他交流之后就更是坚定了我的想法（不过他反而最后没有走，回杭州阿里了）。&lt;/p&gt;
+&lt;p&gt;其实来美国深造贴金是一个在工作的时候就开始有的想法，但是一直没有付诸行动，然后同事中也有一个想要出国镀金，和他交流之后就更是坚定了我的想法（不过他反而最后没有走，回杭州阿里了）。&lt;/p&gt;
 &lt;h3&gt;准备语言&lt;/h3&gt;
 &lt;p&gt;其实我算是准备的很晚的了，而且还没有脱产，从18年7月才开始去上周末的托福课。9月初上完第一次考托福，果不其然只有90不到，十月再考了一次，92，十二月最后考了一次，98，其中口语23，时间差不多了，也勉强够用了。不得不吐槽托福北京的考点实在是太满了，我这三次全部都是在石家庄和山西考的，心疼时间和钱。11月的时候穿插着考了一次gre，也是菜的不行，就是背了单词做了og上的模拟题就上了，成绩也很普通 318（148+170）。事实证明，这个gt配合很水的gre，也是有学校读的&lt;/p&gt;
 &lt;h3&gt;开始申请&lt;/h3&gt;
@@ -280,7 +280,6 @@ export const pageQuery = graphql`
 &lt;li&gt;来美国第一时间就要开始准备面试，甚至没来之前就要开始投简历，所以来之前就要开始刷题，准备简历。&lt;/li&gt;
 &lt;li&gt;自己申学校既省钱还能锻炼英语，缺点就是费时间。&lt;/li&gt;
 &lt;li&gt;学好厨艺&lt;/li&gt;
-&lt;li&gt;找个支持你的好对象哈哈，感谢女友的大力支持~&lt;/li&gt;
 &lt;/ol&gt;</content:encoded></item><item><title><![CDATA[博客迁移]]></title><description><![CDATA[背景 最近学习了React这门前端框架，也算是入门了前端吧，发现比起之前用jQuery写真的方便和规范了很多，就如同java遇到了Spring一样。正好需要拿一个实际的项目练练手，所以就准备重新实现一下我之前的博客。之前的博客是用Hexo…]]></description><link>http://hubingcheng.com/博客迁移/</link><guid isPermaLink="false">http://hubingcheng.com/博客迁移/</guid><pubDate>Sat, 22 Feb 2020 16:02:37 GMT</pubDate><content:encoded>&lt;h2&gt;背景&lt;/h2&gt;
 &lt;p&gt;最近学习了React这门前端框架，也算是入门了前端吧，发现比起之前用jQuery写真的方便和规范了很多，就如同java遇到了Spring一样。正好需要拿一个实际的项目练练手，所以就准备重新实现一下我之前的博客。之前的博客是用Hexo框架写的，非常的省心，你基本上要做的只是写markdown的文章，找一个你喜欢的主题，然后再配好各种个性化的配置就可以用了。代价也就是框架十分固定，很难扩展。所以我打算实践一下最近学的内容，从头写一个自己的博客。&lt;/p&gt;
 &lt;h2&gt;实现目标&lt;/h2&gt;
