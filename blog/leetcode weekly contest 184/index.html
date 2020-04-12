@@ -66,7 +66,7 @@ Example 3:
 
 Input: queries = [7,5,5,8,3], m = 8
 Output: [6,5,0,7,5]</code></pre></div>
-<p>题目本身有点绕，但是实际上理解了之后还是比较简单的。如果不考虑优化，就是数组操作而已。理论上重拍如果rangecopy的话，时间复杂度是o(1)，如果能找到一个合适的查找算法让每次查找都是o(1)或者o(lgn)的话，那么会更快，但是时间有限，没想到，所以就用最之间的o(n)的查找，那么总的时间复杂度就是o(nlgn)。</p>
+<p>题目本身有点绕，但是实际上理解了之后还是比较简单的。如果不考虑优化，就是数组操作而已。理论上重拍如果rangecopy的话，时间复杂度是o(1)，如果能找到一个合适的查找算法让每次查找都是o(1)或者o(lgn)的话，那么会更快，但是时间有限，没想到，所以就用最之间的o(n)的查找，那么总的时间复杂度就是o(n^2)。</p>
 <p>答案：</p>
 <div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">class Solution {
     public int[] processQueries(int[] queries, int m) {
