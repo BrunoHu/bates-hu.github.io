@@ -1,4 +1,228 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Bates Hu]]></title><description><![CDATA[Personal Web of Bates Hu]]></description><link>http://hubingcheng.com</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 12 Apr 2020 05:39:08 GMT</lastBuildDate><item><title><![CDATA[leetcode weekly contest 184]]></title><description><![CDATA[here to write content]]></description><link>http://hubingcheng.com/leetcode weekly contest 184/</link><guid isPermaLink="false">http://hubingcheng.com/leetcode weekly contest 184/</guid><pubDate>Sat, 11 Apr 2020 22:04:24 GMT</pubDate><content:encoded>&lt;p&gt;here to write content&lt;/p&gt;</content:encoded></item><item><title><![CDATA[华州留学生驾照指南]]></title><description><![CDATA[今天刚去DOL把驾照的事情完全办妥了，分享一下整个拿驾照的过程。 注册 第一步就是要先去DOL(Department of Licensing 证件局？)的官网注册，做一个pre application…]]></description><link>http://hubingcheng.com/华州留学生驾照指南/</link><guid isPermaLink="false">http://hubingcheng.com/华州留学生驾照指南/</guid><pubDate>Thu, 05 Mar 2020 19:04:29 GMT</pubDate><content:encoded>&lt;p&gt;今天刚去DOL把驾照的事情完全办妥了，分享一下整个拿驾照的过程。&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Bates Hu]]></title><description><![CDATA[Personal Web of Bates Hu]]></description><link>http://hubingcheng.com</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 12 Apr 2020 05:43:00 GMT</lastBuildDate><item><title><![CDATA[leetcode weekly contest 184]]></title><description><![CDATA[本来想喝着小酒写作业的，刚好看到今天星期六，就顺手做了一下leetcode contest，没想到drunk code如此给力，就趁热打铁把思路写出来了。因为四个题加起来只用了不到一小时，勉强可以认为符合实际的做题时间，算是一种实际面试的模拟吧。 1 String…]]></description><link>http://hubingcheng.com/leetcode weekly contest 184/</link><guid isPermaLink="false">http://hubingcheng.com/leetcode weekly contest 184/</guid><pubDate>Sat, 11 Apr 2020 22:04:24 GMT</pubDate><content:encoded>&lt;p&gt;本来想喝着小酒写作业的，刚好看到今天星期六，就顺手做了一下leetcode contest，没想到drunk code如此给力，就趁热打铁把思路写出来了。因为四个题加起来只用了不到一小时，勉强可以认为符合实际的做题时间，算是一种实际面试的模拟吧。&lt;/p&gt;
+&lt;h2&gt;&lt;a href=&quot;https://leetcode.com/problems/string-matching-in-an-array/&quot;&gt;1 String Matching in an Array&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Difficulty:Easy &lt;/p&gt;
+&lt;p&gt;Given an array of string words. Return all strings in words which is substring of another word in any order. &lt;/p&gt;
+&lt;p&gt;String words[i] is substring of words[j], if can be obtained removing some characters to left and/or right side of words[j].&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Example 1:
+
+Input: words = [&amp;quot;mass&amp;quot;,&amp;quot;as&amp;quot;,&amp;quot;hero&amp;quot;,&amp;quot;superhero&amp;quot;]
+Output: [&amp;quot;as&amp;quot;,&amp;quot;hero&amp;quot;]
+Explanation: &amp;quot;as&amp;quot; is substring of &amp;quot;mass&amp;quot; and &amp;quot;hero&amp;quot; is substring of &amp;quot;superhero&amp;quot;.
+[&amp;quot;hero&amp;quot;,&amp;quot;as&amp;quot;] is also a valid answer.
+
+Example 2:
+Input: words = [&amp;quot;leetcode&amp;quot;,&amp;quot;et&amp;quot;,&amp;quot;code&amp;quot;]
+Output: [&amp;quot;et&amp;quot;,&amp;quot;code&amp;quot;]
+Explanation: &amp;quot;et&amp;quot;, &amp;quot;code&amp;quot; are substring of &amp;quot;leetcode&amp;quot;.
+
+Example 3:
+Input: words = [&amp;quot;blue&amp;quot;,&amp;quot;green&amp;quot;,&amp;quot;bu&amp;quot;]
+Output: []&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;题目的难度是easy，实际也很简单，最直观的就是两次遍历一个个判断，然后简单优化一下就是按长度从长到短排序，因为短的只能是长的的substring，而且如果a是b的substring，b是c的substring，那么a必定是c的substring。而且题目说没有重复的string，所以可以分成两个集合，一个集合存substrings，一个存nonsubstrings。虽然都是&lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;msup&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/msup&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;n^2&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.8141079999999999em;vertical-align:0em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;msupsub&quot;&gt;&lt;span class=&quot;vlist-t&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.8141079999999999em;&quot;&gt;&lt;span style=&quot;top:-3.063em;margin-right:0.05em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:2.7em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;2&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;，但是优化之后比较次数会少很多。至于nlogn的暂时没有什么想法，也没有面试官给我hint，所以直接就写了。&lt;/p&gt;
+&lt;p&gt;答案：&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;class Solution {
+    public List&amp;lt;String&amp;gt; stringMatching(String[] words) {
+        Set&amp;lt;String&amp;gt; set = new HashSet&amp;lt;&amp;gt;();
+        
+        List&amp;lt;String&amp;gt; ret = new LinkedList&amp;lt;&amp;gt;();
+
+        Arrays.sort(words, (x, y) -&amp;gt; y.length() - x.length());
+        
+        for (String word : words) {
+            if (set.stream().anyMatch(ele -&amp;gt; ele.contains(word))) {
+                ret.add(word);
+            } else {
+                set.add(word);
+            }
+        }
+        return ret;
+    }
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;&lt;a href=&quot;https://leetcode.com/problems/queries-on-a-permutation-with-key/&quot;&gt;2. Queries on a Permutation With Key&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Difficulty:Medium&lt;/p&gt;
+&lt;p&gt;Given the array queries of positive integers between 1 and m, you have to process all queries[i] (from i=0 to i=queries.length-1) according to the following rules:&lt;/p&gt;
+&lt;p&gt;In the beginning, you have the permutation P=[1,2,3,…,m].
+For the current i, find the position of queries[i] in the permutation P (indexing from 0) and then move this at the beginning of the permutation P. Notice that the position of queries[i] in P is the result for queries[i].
+Return an array containing the result for the given queries.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Example 1:
+
+Input: queries = [3,1,2,1], m = 5
+Output: [2,1,2,1] 
+Explanation: The queries are processed as follow: 
+For i=0: queries[i]=3, P=[1,2,3,4,5], position of 3 in P is 2, then we move 3 to the beginning of P resulting in P=[3,1,2,4,5]. 
+For i=1: queries[i]=1, P=[3,1,2,4,5], position of 1 in P is 1, then we move 1 to the beginning of P resulting in P=[1,3,2,4,5]. 
+For i=2: queries[i]=2, P=[1,3,2,4,5], position of 2 in P is 2, then we move 2 to the beginning of P resulting in P=[2,1,3,4,5]. 
+For i=3: queries[i]=1, P=[2,1,3,4,5], position of 1 in P is 1, then we move 1 to the beginning of P resulting in P=[1,2,3,4,5]. 
+Therefore, the array containing the result is [2,1,2,1].  
+
+Example 2:
+
+Input: queries = [4,1,2,2], m = 4
+Output: [3,1,2,0]
+
+Example 3:
+
+Input: queries = [7,5,5,8,3], m = 8
+Output: [6,5,0,7,5]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;题目本身有点绕，但是实际上理解了之后还是比较简单的。如果不考虑优化，就是数组操作而已。理论上重拍如果rangecopy的话，时间复杂度是o(1)，如果能找到一个合适的查找算法让每次查找都是o(1)或者o(lgn)的话，那么会更快，但是时间有限，没想到，所以就用最之间的o(n)的查找，那么总的时间复杂度就是o(nlgn)。&lt;/p&gt;
+&lt;p&gt;答案：&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;class Solution {
+    public int[] processQueries(int[] queries, int m) {
+        int[] r = new int[queries.length];
+        int[] ret = new int[m];
+        for (int i = 0; i&amp;lt; ret.length; i++) {
+            ret[i] = i+1;
+        }
+
+        for (int i = 0; i &amp;lt; queries.length; i++) {
+            int target = queries[i];
+            int index = -1;
+            for (int j = 0; j &amp;lt; ret.length; j++) {
+                if (ret[j] == target) {
+                    index = j;
+                    r[i] = index;
+                    break;
+                }
+            }
+            // 最好是用rangecopy效率高，但是懒得翻api了就直接怼
+            int[] newret = new int[m];
+            newret[0] = target;
+            for (int i1 = 0; i1 &amp;lt; index; i1++) {
+                newret[i1+1] = ret[i1];
+            }
+            for (int i2 = index + 1; i2 &amp;lt; ret.length; i2++) {
+                newret[i2] = ret[i2];
+            }
+            ret = newret;
+        }
+        return r;
+    }
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;&lt;a href=&quot;https://leetcode.com/problems/html-entity-parser/&quot;&gt;3. HTML Entity Parser&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Difficulty:Medium
+HTML entity parser is the parser that takes HTML code as input and replace all the entities of the special characters by the characters itself.&lt;/p&gt;
+&lt;p&gt;The special characters and their entities for HTML are:&lt;/p&gt;
+&lt;p&gt;Quotation Mark: the entity is ” and symbol character is “.
+Single Quote Mark: the entity is ’ and symbol character is ‘.
+Ampersand: the entity is &amp;#x26; and symbol character is &amp;#x26;.
+Greater Than Sign: the entity is &gt; and symbol character is &gt;.
+Less Than Sign: the entity is &amp;#x3C; and symbol character is &amp;#x3C;.
+Slash: the entity is ⁄ and symbol character is /.
+Given the input text string to the HTML parser, you have to implement the entity parser.&lt;/p&gt;
+&lt;p&gt;Return the text after replacing the entities by the special characters.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Example 1:
+
+Input: text = &amp;quot;&amp;amp;amp; is an HTML entity but &amp;amp;ambassador; is not.&amp;quot;
+Output: &amp;quot;&amp;amp; is an HTML entity but &amp;amp;ambassador; is not.&amp;quot;
+Explanation: The parser will replace the &amp;amp;amp; entity by &amp;amp;
+
+Example 2:
+
+Input: text = &amp;quot;and I quote: &amp;amp;quot;...&amp;amp;quot;&amp;quot;
+Output: &amp;quot;and I quote: \&amp;quot;...\&amp;quot;&amp;quot;
+
+Example 3:
+
+Input: text = &amp;quot;Stay home! Practice on Leetcode :)&amp;quot;
+Output: &amp;quot;Stay home! Practice on Leetcode :)&amp;quot;
+
+Example 4:
+
+Input: text = &amp;quot;x &amp;amp;gt; y &amp;amp;amp;&amp;amp;amp; x &amp;amp;lt; y is always false&amp;quot;
+Output: &amp;quot;x &amp;gt; y &amp;amp;&amp;amp; x &amp;lt; y is always false&amp;quot;
+
+Example 5:
+
+Input: text = &amp;quot;leetcode.com&amp;amp;frasl;problemset&amp;amp;frasl;all&amp;quot;
+Output: &amp;quot;leetcode.com/problemset/all&amp;quot;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;这个其实也没有什么难度，就是字符串操作。但是实际上我写的时候喝多了点，脑子有点短路，是用最后的&lt;code class=&quot;language-text&quot;&gt;;&lt;/code&gt;做判断是否进入对比的流程。实际上用开始的&lt;code class=&quot;language-text&quot;&gt;&amp;amp;&lt;/code&gt;会更方便些。总的来说就是一个个扫描，如果碰到了&lt;code class=&quot;language-text&quot;&gt;&amp;amp;&lt;/code&gt;，那么就进行对比，符合的话就转换。&lt;/p&gt;
+&lt;p&gt;答案：&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;class Solution {
+    public String entityParser(String text) {
+        StringBuffer sb = new StringBuffer();
+        int cursor = text.length() - 1;
+        while (cursor &amp;gt;= 0) {
+            if (text.charAt(cursor) != &amp;#39;;&amp;#39;) {
+                sb.insert(0, text.charAt(cursor));
+                cursor--;
+            } else {
+                if (cursor &amp;gt;= 3 &amp;amp;&amp;amp;&amp;quot;&amp;amp;lt&amp;quot;.equals(text.substring(cursor - 3, cursor))) {
+                    sb.insert(0, &amp;quot;&amp;lt;&amp;quot;);
+                    cursor = cursor - 4;
+                } else if (cursor &amp;gt;= 3 &amp;amp;&amp;amp; &amp;quot;&amp;amp;gt&amp;quot;.equals(text.substring(cursor - 3, cursor))) {
+                    sb.insert(0, &amp;quot;&amp;gt;&amp;quot;);
+                    cursor = cursor - 4;
+                } else if (cursor &amp;gt;= 4 &amp;amp;&amp;amp; &amp;quot;&amp;amp;amp&amp;quot;.equals(text.substring(cursor - 4, cursor))) {
+                    sb.insert(0, &amp;quot;&amp;amp;&amp;quot;);
+                    cursor = cursor - 5;
+                } else if (cursor &amp;gt;= 5 &amp;amp;&amp;amp; &amp;quot;&amp;amp;apos&amp;quot;.equals(text.substring(cursor - 5, cursor))) {
+                    sb.insert(0, &amp;quot;&amp;#39;&amp;quot;);
+                    cursor = cursor - 6;
+                } else if (cursor &amp;gt;= 5 &amp;amp;&amp;amp; &amp;quot;&amp;amp;quot&amp;quot;.equals(text.substring(cursor - 5, cursor))) {
+                    sb.insert(0, &amp;quot;\&amp;quot;&amp;quot;);
+                    cursor = cursor - 6;
+                } else if (cursor &amp;gt;= 6 &amp;amp;&amp;amp; &amp;quot;&amp;amp;frasl&amp;quot;.equals(text.substring(cursor - 6, cursor))) {
+                    sb.insert(0, &amp;quot;/&amp;quot;);
+                    cursor = cursor - 7;
+                } else {
+                    sb.insert(0, text.charAt(cursor));
+                    cursor--;
+                }
+            }
+        }
+        return sb.toString();
+    }
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;&lt;a href=&quot;https://leetcode.com/problems/number-of-ways-to-paint-n-3-grid/&quot;&gt;4. Number of Ways to Paint N × 3 Grid&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Difficulty:Hard
+You have a grid of size n x 3 and you want to paint each cell of the grid with exactly one of the three colours: Red, Yellow or Green while making sure that no two adjacent cells have the same colour (i.e no two cells that share vertical or horizontal sides have the same colour).&lt;/p&gt;
+&lt;p&gt;You are given n the number of rows of the grid.&lt;/p&gt;
+&lt;p&gt;Return the number of ways you can paint this grid. As the answer may grow large, the answer must be computed modulo 10^9 + 7.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Example 1:
+
+Input: n = 1
+Output: 12
+Explanation: There are 12 possible way to paint the grid as shown:
+
+Example 2:
+
+Input: n = 2
+Output: 54
+
+Example 3:
+
+Input: n = 3
+Output: 246
+
+Example 4:
+
+Input: n = 7
+Output: 106494
+
+Example 5:
+
+Input: n = 5000
+Output: 30228214&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;这个题目有点意思，一看就是一个数学题。本来着色问题是很难的，但是因为他有两个限制，一个是宽度只有3，第二个是颜色只有3个，所以简单了非常多。也是我运气比较好，一开始就想到了一个思路。因为他是3*n的形状，那么填第i行的时候，只需要收到第i-1行的限制。而example告诉我们，一行只有12种可能，那么直接找出12个可能中每个可能所对应的所有下一行的可能就可以以此类推了。&lt;/p&gt;
+&lt;p&gt;而且，我们可以进一步简化，因为颜色其实是对等的，所以我们可以直接撇去颜色，思考一个更简化的模型。就是一行着色中只有两种可能，一种是有两种颜色，简称为A模式，一种是有三种颜色，称为B模式。&lt;/p&gt;
+&lt;p&gt;假设有XYZ三种颜色。XYZ只代表他们颜色不同，不代表具体的颜色。&lt;/p&gt;
+&lt;p&gt;A模式的色彩分布必定为XYX，X和Y为任意不同颜色。其对应的下一行必定为 YXY，YZY，YZX，ZXZ，ZXY，下一行有5中可能，3中是A模式，2种是B模式&lt;/p&gt;
+&lt;p&gt;同理，B模式的色彩分布必定是XYZ，其对应的下一行必然为 YXY，YZY，YZX，ZXY。2中A模式，2种B模式。&lt;/p&gt;
+&lt;p&gt;那么我们就可以开始递推了。假如涂色涂到了第i行，其中有n中可能为A模式，m种可能为B模式，那么第i+1行有(3n+2m)种可能为A模式，(2n+2m)种可能为B模式。&lt;/p&gt;
+&lt;p&gt;所以代码很简单&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;class Solution {
+    public int numOfWays(int n) {
+        long a = 6;
+        long b = 6;
+        for (int i = 1; i &amp;lt; n; i++) {
+            long aa = (3 * a + 2 * b) % 1000000007;
+            long bb = (2 * a + 2 * b) % 1000000007;
+            a = aa;
+            b = bb;
+        }
+        return (int)((a+b) % 1000000007) ;
+    }
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[华州留学生驾照指南]]></title><description><![CDATA[今天刚去DOL把驾照的事情完全办妥了，分享一下整个拿驾照的过程。 注册 第一步就是要先去DOL(Department of Licensing 证件局？)的官网注册，做一个pre application…]]></description><link>http://hubingcheng.com/华州留学生驾照指南/</link><guid isPermaLink="false">http://hubingcheng.com/华州留学生驾照指南/</guid><pubDate>Thu, 05 Mar 2020 19:04:29 GMT</pubDate><content:encoded>&lt;p&gt;今天刚去DOL把驾照的事情完全办妥了，分享一下整个拿驾照的过程。&lt;/p&gt;
 &lt;h3&gt;注册&lt;/h3&gt;
 &lt;p&gt;第一步就是要先去DOL(Department of Licensing 证件局？)的官网注册，做一个pre application，根据要求一步步填写你的个人信息。里面有一个注意的就是身份证明的材料。到时候去办驾照的时候要带。留学生一般选的都是护照和I20。然后还有一个住址证明材料，可以用水电网和银行等的bill邮件做证明。注册的网址在这里&lt;a href=&quot;https://secure.dol.wa.gov/home/newDriver.aspx&quot;&gt;https://secure.dol.wa.gov/home/newDriver.aspx&lt;/a&gt;。注册完之后你就可以拿到一个id号码，这个建议你记在手机上。是WDL开头的一个号码，类似WDLxxxxxxxxx，到时候报名考试的时候要用。&lt;/p&gt;
 &lt;h3&gt;笔试&lt;/h3&gt;
