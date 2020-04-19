@@ -221,6 +221,7 @@ All characters in the string are: 'c', 'r', 'o', 'a' or 'k'.
 
 这个题目我一开始还理解错题目了，这不是求有多少个序列，而是要求同时有多少个青蛙在呱。总体思路就是在每个k的位置，找到他对应的c，看看在这段时间中有多少个青蛙呱完了。其实和meeting room有点像，但是不同的地方是开头和结尾是严格有序的，所以更简单点。我的解答因为一开始理解错了题意，所以写的有点奇怪。
 
+```
 class Solution {
     public int minNumberOfFrogs(String croakOfFrogs) {
         int[] count = new int[6];
@@ -288,6 +289,7 @@ class Solution {
         return ret;
     }
 }
+```
 
 ## [1420. Build Array Where You Can Find The Maximum Exactly K Comparisons](https://leetcode.com/problems/build-array-where-you-can-find-the-maximum-exactly-k-comparisons/)
 
