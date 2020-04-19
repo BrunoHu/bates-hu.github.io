@@ -314,9 +314,9 @@ Constraints:
 <p>那么初始的状态S(v,c,l)就是S(-1,k,n),那么怎么往后走呢。最直接的就是让数组最左边的位置从1->m遍历所有值，然后l就减小了，假设数组最左边的值为x，那么根据v的大小，我们就有两种子情况:</p>
 <ul>
 <li>S(v, c, l - 1)            -> x &#x3C;= v </li>
-<li>S(x, c - 1, l - 1)        -> x > v
-再判断边界条件，当l=0时，如果c=0，那么是ok的，如果c！=0，那么表示这个方案不对。</li>
+<li>S(x, c - 1, l - 1)        -> x > v</li>
 </ul>
+<p>再判断边界条件，当l=0时，如果c=0，那么是ok的，如果c！=0，那么表示这个方案不对。</p>
 <p>推导式出来我们就可以写代码了</p>
 <div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">class Solution {
     // 存中间结果
