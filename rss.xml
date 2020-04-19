@@ -1,4 +1,369 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Bates Hu]]></title><description><![CDATA[Personal Web of Bates Hu]]></description><link>http://hubingcheng.com</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 12 Apr 2020 05:50:17 GMT</lastBuildDate><item><title><![CDATA[leetcode weekly contest 184]]></title><description><![CDATA[本来想喝着小酒写作业的，刚好看到今天星期六，就顺手做了一下leetcode contest，没想到drunk code如此给力，就趁热打铁把思路写出来了。因为四个题加起来只用了不到一小时，勉强可以认为符合实际的做题时间，算是一种实际面试的模拟吧。 1 String…]]></description><link>http://hubingcheng.com/leetcode weekly contest 184/</link><guid isPermaLink="false">http://hubingcheng.com/leetcode weekly contest 184/</guid><pubDate>Sat, 11 Apr 2020 22:04:24 GMT</pubDate><content:encoded>&lt;p&gt;本来想喝着小酒写作业的，刚好看到今天星期六，就顺手做了一下leetcode contest，没想到drunk code如此给力，就趁热打铁把思路写出来了。因为四个题加起来只用了不到一小时，勉强可以认为符合实际的做题时间，算是一种实际面试的模拟吧。&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Bates Hu]]></title><description><![CDATA[Personal Web of Bates Hu]]></description><link>http://hubingcheng.com</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 19 Apr 2020 05:33:37 GMT</lastBuildDate><item><title><![CDATA[leetcode contest 185]]></title><description><![CDATA[弄个周更督促我保持刷题。这次没有做完，多用了10分钟，倒数第二题理解错了之后花了挺久，最后一道题被同余坑了15分钟，感觉自己是傻逼。而且写的过程中我还发现我的ctrl+c和ctrl+v不灵了，这是在diss我抄代码抄太多了么。。。 1417. Reformat The…]]></description><link>http://hubingcheng.com/leetcode contest 185/</link><guid isPermaLink="false">http://hubingcheng.com/leetcode contest 185/</guid><pubDate>Sat, 18 Apr 2020 21:05:29 GMT</pubDate><content:encoded>&lt;p&gt;弄个周更督促我保持刷题。这次没有做完，多用了10分钟，倒数第二题理解错了之后花了挺久，最后一道题被同余坑了15分钟，感觉自己是傻逼。而且写的过程中我还发现我的ctrl+c和ctrl+v不灵了，这是在diss我抄代码抄太多了么。。。&lt;/p&gt;
+&lt;h2&gt;&lt;a href=&quot;https://leetcode.com/problems/reformat-the-string&quot;&gt;1417. Reformat The String&lt;/a&gt;&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Difficulty:Easy
+Given alphanumeric string s. (Alphanumeric string is a string consisting of lowercase English letters and digits).
+
+You have to find a permutation of the string where no letter is followed by another letter and no digit is followed by another digit. That is, no two adjacent characters have the same type.
+
+Return the reformatted string or return an empty string if it is impossible to reformat the string.
+
+Example 1:
+
+Input: s = &amp;quot;a0b1c2&amp;quot;
+Output: &amp;quot;0a1b2c&amp;quot;
+Explanation: No two adjacent characters have the same type in &amp;quot;0a1b2c&amp;quot;. &amp;quot;a0b1c2&amp;quot;, &amp;quot;0a1b2c&amp;quot;, &amp;quot;0c2a1b&amp;quot; are also valid permutations.
+Example 2:
+
+Input: s = &amp;quot;leetcode&amp;quot;
+Output: &amp;quot;&amp;quot;
+Explanation: &amp;quot;leetcode&amp;quot; has only characters so we cannot separate them by digits.
+Example 3:
+
+Input: s = &amp;quot;1229857369&amp;quot;
+Output: &amp;quot;&amp;quot;
+Explanation: &amp;quot;1229857369&amp;quot; has only digits so we cannot separate them by characters.
+Example 4:
+
+Input: s = &amp;quot;covid2019&amp;quot;
+Output: &amp;quot;c2o0v1i9d&amp;quot;
+Example 5:
+
+Input: s = &amp;quot;ab123&amp;quot;
+Output: &amp;quot;1a2b3&amp;quot;
+ 
+
+Constraints:
+
+1 &amp;lt;= s.length &amp;lt;= 500
+s consists of only lowercase English letters and/or digits.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;easy不想说啥，就是把数字和字母分成两个list，如果长度差不超过1就可以组。&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;class Solution {
+    public String reformat(String s) {
+         List&amp;lt;Character&amp;gt; characters = new ArrayList&amp;lt;&amp;gt;();
+        List&amp;lt;Character&amp;gt; digits = new ArrayList&amp;lt;&amp;gt;();
+        
+        for (char c : s.toCharArray()) {
+            if (c &amp;gt;= &amp;#39;0&amp;#39; &amp;amp;&amp;amp; c &amp;lt;= &amp;#39;9&amp;#39;) {
+                digits.add(c);
+            } else {
+                characters.add(c);
+            }
+        }
+        
+        if (Math.abs(characters.size() - digits.size()) &amp;gt; 1) {
+            return &amp;quot;&amp;quot;;
+        }
+
+        List&amp;lt;Character&amp;gt; first;
+        List&amp;lt;Character&amp;gt; second;
+        
+        if (characters.size() &amp;gt; digits.size()) {
+            first = characters;
+            second = digits;
+        } else {
+            second = characters;
+            first = digits;
+        }
+        StringBuffer sb = new StringBuffer();
+        for (int i = 0; i &amp;lt; second.size(); i++) {
+            sb.append(first.get(i));
+            sb.append(second.get(i));
+        }
+        
+        if (first.size() &amp;gt; second.size()) {
+            sb.append(first.get(first.size() - 1));
+        }
+        
+        return sb.toString();
+    }
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;&lt;a href=&quot;https://leetcode.com/problems/display-table-of-food-orders-in-a-restaurant/&quot;&gt;1418. Display Table of Food Orders in a Restaurant&lt;/a&gt;&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Difficulty:Medium
+Given the array orders, which represents the orders that customers have done in a restaurant. More specifically orders[i]=[customerNamei,tableNumberi,foodItemi] where customerNamei is the name of the customer, tableNumberi is the table customer sit at, and foodItemi is the item customer orders.
+
+Return the restaurant&amp;#39;s “display table”. The “display table” is a table whose row entries denote how many of each food item each table ordered. The first column is the table number and the remaining columns correspond to each food item in alphabetical order. The first row should be a header whose first column is “Table”, followed by the names of the food items. Note that the customer names are not part of the table. Additionally, the rows should be sorted in numerically increasing order.
+
+ 
+
+Example 1:
+
+Input: orders = [[&amp;quot;David&amp;quot;,&amp;quot;3&amp;quot;,&amp;quot;Ceviche&amp;quot;],[&amp;quot;Corina&amp;quot;,&amp;quot;10&amp;quot;,&amp;quot;Beef Burrito&amp;quot;],[&amp;quot;David&amp;quot;,&amp;quot;3&amp;quot;,&amp;quot;Fried Chicken&amp;quot;],[&amp;quot;Carla&amp;quot;,&amp;quot;5&amp;quot;,&amp;quot;Water&amp;quot;],[&amp;quot;Carla&amp;quot;,&amp;quot;5&amp;quot;,&amp;quot;Ceviche&amp;quot;],[&amp;quot;Rous&amp;quot;,&amp;quot;3&amp;quot;,&amp;quot;Ceviche&amp;quot;]]
+Output: [[&amp;quot;Table&amp;quot;,&amp;quot;Beef Burrito&amp;quot;,&amp;quot;Ceviche&amp;quot;,&amp;quot;Fried Chicken&amp;quot;,&amp;quot;Water&amp;quot;],[&amp;quot;3&amp;quot;,&amp;quot;0&amp;quot;,&amp;quot;2&amp;quot;,&amp;quot;1&amp;quot;,&amp;quot;0&amp;quot;],[&amp;quot;5&amp;quot;,&amp;quot;0&amp;quot;,&amp;quot;1&amp;quot;,&amp;quot;0&amp;quot;,&amp;quot;1&amp;quot;],[&amp;quot;10&amp;quot;,&amp;quot;1&amp;quot;,&amp;quot;0&amp;quot;,&amp;quot;0&amp;quot;,&amp;quot;0&amp;quot;]] 
+Explanation:
+The displaying table looks like:
+Table,Beef Burrito,Ceviche,Fried Chicken,Water
+3    ,0           ,2      ,1            ,0
+5    ,0           ,1      ,0            ,1
+10   ,1           ,0      ,0            ,0
+For the table 3: David orders &amp;quot;Ceviche&amp;quot; and &amp;quot;Fried Chicken&amp;quot;, and Rous orders &amp;quot;Ceviche&amp;quot;.
+For the table 5: Carla orders &amp;quot;Water&amp;quot; and &amp;quot;Ceviche&amp;quot;.
+For the table 10: Corina orders &amp;quot;Beef Burrito&amp;quot;. 
+Example 2:
+
+Input: orders = [[&amp;quot;James&amp;quot;,&amp;quot;12&amp;quot;,&amp;quot;Fried Chicken&amp;quot;],[&amp;quot;Ratesh&amp;quot;,&amp;quot;12&amp;quot;,&amp;quot;Fried Chicken&amp;quot;],[&amp;quot;Amadeus&amp;quot;,&amp;quot;12&amp;quot;,&amp;quot;Fried Chicken&amp;quot;],[&amp;quot;Adam&amp;quot;,&amp;quot;1&amp;quot;,&amp;quot;Canadian Waffles&amp;quot;],[&amp;quot;Brianna&amp;quot;,&amp;quot;1&amp;quot;,&amp;quot;Canadian Waffles&amp;quot;]]
+Output: [[&amp;quot;Table&amp;quot;,&amp;quot;Canadian Waffles&amp;quot;,&amp;quot;Fried Chicken&amp;quot;],[&amp;quot;1&amp;quot;,&amp;quot;2&amp;quot;,&amp;quot;0&amp;quot;],[&amp;quot;12&amp;quot;,&amp;quot;0&amp;quot;,&amp;quot;3&amp;quot;]] 
+Explanation: 
+For the table 1: Adam and Brianna order &amp;quot;Canadian Waffles&amp;quot;.
+For the table 12: James, Ratesh and Amadeus order &amp;quot;Fried Chicken&amp;quot;.
+Example 3:
+
+Input: orders = [[&amp;quot;Laura&amp;quot;,&amp;quot;2&amp;quot;,&amp;quot;Bean Burrito&amp;quot;],[&amp;quot;Jhon&amp;quot;,&amp;quot;2&amp;quot;,&amp;quot;Beef Burrito&amp;quot;],[&amp;quot;Melissa&amp;quot;,&amp;quot;2&amp;quot;,&amp;quot;Soda&amp;quot;]]
+Output: [[&amp;quot;Table&amp;quot;,&amp;quot;Bean Burrito&amp;quot;,&amp;quot;Beef Burrito&amp;quot;,&amp;quot;Soda&amp;quot;],[&amp;quot;2&amp;quot;,&amp;quot;1&amp;quot;,&amp;quot;1&amp;quot;,&amp;quot;1&amp;quot;]]
+ 
+
+Constraints:
+
+1 &amp;lt;= orders.length &amp;lt;= 5 * 10^4
+orders[i].length == 3
+1 &amp;lt;= customerNamei.length, foodItemi.length &amp;lt;= 20
+customerNamei and foodItemi consist of lowercase and uppercase English letters and the space character.
+tableNumberi is a valid integer between 1 and 500.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;这个没有任何算法，不想解释，就是按照逻辑写就可以，唯一注意的就是排序的时候桌号要用转化成数字排序&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;class Solution {
+    public List&amp;lt;List&amp;lt;String&amp;gt;&amp;gt; displayTable(List&amp;lt;List&amp;lt;String&amp;gt;&amp;gt; orders) {
+        Set&amp;lt;String&amp;gt; dishes = new HashSet&amp;lt;&amp;gt;();
+        Set&amp;lt;String&amp;gt; tables = new HashSet&amp;lt;&amp;gt;();
+        Map&amp;lt;Pair&amp;lt;String, String&amp;gt;, Integer&amp;gt; map = new HashMap&amp;lt;&amp;gt;();
+        
+        
+        for (List&amp;lt;String&amp;gt; order : orders) {
+            dishes.add(order.get(2));
+            tables.add(order.get(1));
+            Pair&amp;lt;String, String&amp;gt; pair = new Pair&amp;lt;&amp;gt;(order.get(1), order.get(2));
+            map.put(pair, map.getOrDefault(pair, 0) + 1);
+        }
+        
+        List&amp;lt;String&amp;gt; t = new ArrayList&amp;lt;&amp;gt;(tables);
+        List&amp;lt;String&amp;gt; d = new ArrayList&amp;lt;&amp;gt;(dishes);
+
+        t.sort(Comparator.comparing(Integer::valueOf));
+        Collections.sort(d);
+        
+        List&amp;lt;List&amp;lt;String&amp;gt;&amp;gt; ret = new ArrayList&amp;lt;&amp;gt;();
+        List&amp;lt;String&amp;gt; dd = new ArrayList&amp;lt;&amp;gt;();
+        dd.add(&amp;quot;Table&amp;quot;);
+        dd.addAll(d);
+        
+        System.out.println(t);
+        
+        ret.add(dd);
+        for (String num : t) {
+            List&amp;lt;String&amp;gt; l = new ArrayList&amp;lt;&amp;gt;();
+            l.add(num);
+            for (String dish : d) {
+                l.add(String.valueOf(map.getOrDefault(new Pair&amp;lt;&amp;gt;(num, dish), 0)));
+            }
+            ret.add(l);
+        }
+        
+        return ret;
+    }
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;&lt;a href=&quot;https://leetcode.com/problems/minimum-number-of-frogs-croaking/&quot;&gt;1419. Minimum Number of Frogs Croaking&lt;/a&gt;&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Difficulty:Medium
+Given the string croakOfFrogs, which represents a combination of the string &amp;quot;croak&amp;quot; from different frogs, that is, multiple frogs can croak at the same time, so multiple “croak” are mixed. Return the minimum number of different frogs to finish all the croak in the given string.
+
+A valid &amp;quot;croak&amp;quot; means a frog is printing 5 letters ‘c’, ’r’, ’o’, ’a’, ’k’ sequentially. The frogs have to print all five letters to finish a croak. If the given string is not a combination of valid &amp;quot;croak&amp;quot; return -1.
+
+ 
+
+Example 1:
+
+Input: croakOfFrogs = &amp;quot;croakcroak&amp;quot;
+Output: 1 
+Explanation: One frog yelling &amp;quot;croak&amp;quot; twice.
+Example 2:
+
+Input: croakOfFrogs = &amp;quot;crcoakroak&amp;quot;
+Output: 2 
+Explanation: The minimum number of frogs is two. 
+The first frog could yell &amp;quot;crcoakroak&amp;quot;.
+The second frog could yell later &amp;quot;crcoakroak&amp;quot;.
+Example 3:
+
+Input: croakOfFrogs = &amp;quot;croakcrook&amp;quot;
+Output: -1
+Explanation: The given string is an invalid combination of &amp;quot;croak&amp;quot; from different frogs.
+Example 4:
+
+Input: croakOfFrogs = &amp;quot;croakcroa&amp;quot;
+Output: -1
+ 
+
+Constraints:
+
+1 &amp;lt;= croakOfFrogs.length &amp;lt;= 10^5
+All characters in the string are: &amp;#39;c&amp;#39;, &amp;#39;r&amp;#39;, &amp;#39;o&amp;#39;, &amp;#39;a&amp;#39; or &amp;#39;k&amp;#39;.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;这个题目我一开始还理解错题目了，这不是求有多少个序列，而是要求同时有多少个青蛙在呱。总体思路就是在每个k的位置，找到他对应的c，看看在这段时间中有多少个青蛙呱完了。其实和meeting room有点像，但是不同的地方是开头和结尾是严格有序的，所以更简单点。我的解答因为一开始理解错了题意，所以写的有点奇怪。&lt;/p&gt;
+&lt;p&gt;class Solution {
+public int minNumberOfFrogs(String croakOfFrogs) {
+int[] count = new int[6];&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;    // 记录呱开始的位置
+    ArrayList&amp;lt;Integer&amp;gt; start = new ArrayList&amp;lt;&amp;gt;();
+    // 记录结尾的位置
+    ArrayList&amp;lt;Integer&amp;gt; end = new ArrayList&amp;lt;&amp;gt;();
+    // 记录还没有呱完的开始位置
+    LinkedList&amp;lt;Integer&amp;gt; starts = new LinkedList&amp;lt;&amp;gt;();
+    
+    
+    int finished = 0;
+    
+    int ret = -1;
+    int lastEndIndex = 0;
+
+    for (int i = 0; i&amp;lt; croakOfFrogs.length(); i++) {
+        char c = croakOfFrogs.charAt(i);
+        if (c == &amp;#39;c&amp;#39;) {
+            start.add(i);
+            starts.add(i);
+            count[1]++;
+        } else if (c == &amp;#39;r&amp;#39;) {
+            if (count[1] &amp;gt; 0) {
+                count[1]--;
+                count[2]++;
+            }
+        } else if (c == &amp;#39;o&amp;#39;) {
+            if (count[2] &amp;gt; 0) {
+                count[2]--;
+                count[3]++;
+            }
+        } else if (c == &amp;#39;a&amp;#39;) {
+            if (count[3] &amp;gt; 0) {
+                count[3]--;
+                count[4]++;
+            }
+        }else if (c == &amp;#39;k&amp;#39;) {
+             if (count[4] &amp;gt; 0) {
+                count[4]--;
+                count[5]++;
+                end.add(i);
+            // 找到这个呱对应的开始位置
+            int startIndex = starts.getFirst();
+            starts.removeFirst();
+            
+            // 找到对应开始之后第一个呱结束的序号
+            while (end.get(lastEndIndex) &amp;lt;= startIndex) {
+                lastEndIndex++;
+            }
+            // 计算中间有多少个青蛙同时呱
+            int num = end.size() - lastEndIndex;
+            ret = Math.max(ret, num);
+            }
+            
+        }
+    }
+    // 判断是否都呱完了
+    for (int i = 1; i &amp;lt; count.length - 1; i++) {
+        if (count[i] != 0) {
+            return -1;
+        }
+    }
+    return ret;
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;h2&gt;&lt;a href=&quot;https://leetcode.com/problems/build-array-where-you-can-find-the-maximum-exactly-k-comparisons/&quot;&gt;1420. Build Array Where You Can Find The Maximum Exactly K Comparisons&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;https://assets.leetcode.com/uploads/2020/04/02/e.png&quot;&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Difficulty:Hard
+Given three integers n, m and k. Consider the following algorithm to find the maximum element of an array of positive integers:
+
+
+You should build the array arr which has the following properties:
+
+arr has exactly n integers.
+1 &amp;lt;= arr[i] &amp;lt;= m where (0 &amp;lt;= i &amp;lt; n).
+After applying the mentioned algorithm to arr, the value search_cost is equal to k.
+Return the number of ways to build the array arr under the mentioned conditions. As the answer may grow large, the answer must be computed modulo 10^9 + 7.
+
+ 
+
+Example 1:
+
+Input: n = 2, m = 3, k = 1
+Output: 6
+Explanation: The possible arrays are [1, 1], [2, 1], [2, 2], [3, 1], [3, 2] [3, 3]
+Example 2:
+
+Input: n = 5, m = 2, k = 3
+Output: 0
+Explanation: There are no possible arrays that satisify the mentioned conditions.
+Example 3:
+
+Input: n = 9, m = 1, k = 1
+Output: 1
+Explanation: The only possible array is [1, 1, 1, 1, 1, 1, 1, 1, 1]
+Example 4:
+
+Input: n = 50, m = 100, k = 25
+Output: 34549172
+Explanation: Don&amp;#39;t forget to compute the answer modulo 1000000007
+Example 5:
+
+Input: n = 37, m = 17, k = 7
+Output: 418930126
+ 
+
+Constraints:
+
+1 &amp;lt;= n &amp;lt;= 50
+1 &amp;lt;= m &amp;lt;= 100
+0 &amp;lt;= k &amp;lt;= n&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;这个题目也挺有意思的，代码表达的意思就是遍历数组，如果这个数比之前的所有数都大，那么cost+1。然后让我们求给定的n，m，cost，有多少种排列组合。其实鸡贼点看到限制条件就知道这个是一个复杂度很爆炸的题目。结果还需要求模。综上，凭直觉应该能判断这是一个DP问题，所以我们需要找到表达式。而且maximum_value是一个非常关键的无后效性的值，更坚定了是DP。&lt;/p&gt;
+&lt;p&gt;我们先发掘一下有哪些变量。一个肯定是数组长度l。一个是剩余的cost，记为c。另外一个肯定和当时的maxium_value有关，记为v。&lt;/p&gt;
+&lt;p&gt;那么初始的状态S(v,c,l)就是S(-1,k,n),那么怎么往后走呢。最直接的就是让数组最左边的位置从1-&gt;m遍历所有值，然后l就减小了，假设数组最左边的值为x，那么根据v的大小，我们就有两种子情况:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;S(v, c, l - 1)            -&gt; x &amp;#x3C;= v &lt;/li&gt;
+&lt;li&gt;S(x, c - 1, l - 1)        -&gt; x &gt; v
+再判断边界条件，当l=0时，如果c=0，那么是ok的，如果c！=0，那么表示这个方案不对。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;推导式出来我们就可以写代码了&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;class Solution {
+    // 存中间结果
+  Integer[][][] mem;
+
+
+    public int numOfArrays(int n, int m, int k) {
+        mem = new Integer[m + 1][n + 1][k + 1];
+        // 因为不能用-1，数字一定大于0，所以用相同的0替代
+        return dothing(m, 0, n, k);
+    }
+
+    // v 表示此时的maximun_value， n表示剩下的数组长，c表示剩余的cost 
+    private int dothing(int m, int v, int n, int c) {
+        if (mem[v][n][c] != null) {
+            return mem[v][n][c];
+        }
+
+        if (n == 0) {
+            if (c == 0) {
+                mem[v][n][c] = 1;
+                return mem[v][n][c];
+            } else {
+                mem[v][n][c] = 0;
+                return mem[v][n][c];
+            }
+        }
+        int ret = 0;
+        if (v &amp;gt; 0) {
+            int temp = dothing(m, v, n - 1, c);
+            // 这里不能直接 temp * v，取模会出问题，我在这里被坑了15分钟，感觉自己是太二真人
+            for (int i = 1; i &amp;lt;= v; i++) {
+                ret += temp;
+                ret = ret % 1000000007;
+            }
+        }
+        if (c &amp;gt; 0) {
+            for (int i = Math.max(v + 1, 1); i &amp;lt;= m; i++) {
+                ret += dothing(m, i, n -1, c - 1);
+                ret = ret % 1000000007;
+                
+            }
+        }
+    
+        mem[v][n][c] = ret;
+        return ret;
+
+    }
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[leetcode weekly contest 184]]></title><description><![CDATA[本来想喝着小酒写作业的，刚好看到今天星期六，就顺手做了一下leetcode contest，没想到drunk code如此给力，就趁热打铁把思路写出来了。因为四个题加起来只用了不到一小时，勉强可以认为符合实际的做题时间，算是一种实际面试的模拟吧。 1 String…]]></description><link>http://hubingcheng.com/leetcode weekly contest 184/</link><guid isPermaLink="false">http://hubingcheng.com/leetcode weekly contest 184/</guid><pubDate>Sat, 11 Apr 2020 22:04:24 GMT</pubDate><content:encoded>&lt;p&gt;本来想喝着小酒写作业的，刚好看到今天星期六，就顺手做了一下leetcode contest，没想到drunk code如此给力，就趁热打铁把思路写出来了。因为四个题加起来只用了不到一小时，勉强可以认为符合实际的做题时间，算是一种实际面试的模拟吧。&lt;/p&gt;
 &lt;h2&gt;&lt;a href=&quot;https://leetcode.com/problems/string-matching-in-an-array/&quot;&gt;1 String Matching in an Array&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Difficulty:Easy &lt;/p&gt;
 &lt;p&gt;Given an array of string words. Return all strings in words which is substring of another word in any order. &lt;/p&gt;
