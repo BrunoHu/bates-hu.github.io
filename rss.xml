@@ -1,4 +1,327 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Bates Hu]]></title><description><![CDATA[Personal Web of Bates Hu]]></description><link>http://hubingcheng.com</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 10 May 2020 05:43:03 GMT</lastBuildDate><item><title><![CDATA[leetcode contest 188]]></title><description><![CDATA[here to write content]]></description><link>http://hubingcheng.com/leetcode contest 188/</link><guid isPermaLink="false">http://hubingcheng.com/leetcode contest 188/</guid><pubDate>Sat, 09 May 2020 22:06:01 GMT</pubDate><content:encoded>&lt;p&gt;here to write content&lt;/p&gt;</content:encoded></item><item><title><![CDATA[leetcode contest 187]]></title><description><![CDATA[按时周更 1436. Destination City Easy 没什么可说的，只需要找到出度为0的点就可以了。 1437. Check If All 1’s Are at Least Length K Places Away Medium Given an array nums…]]></description><link>http://hubingcheng.com/leetcode contest 187/</link><guid isPermaLink="false">http://hubingcheng.com/leetcode contest 187/</guid><pubDate>Sun, 03 May 2020 20:05:10 GMT</pubDate><content:encoded>&lt;p&gt;按时周更&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Bates Hu]]></title><description><![CDATA[Personal Web of Bates Hu]]></description><link>http://hubingcheng.com</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 10 May 2020 05:47:05 GMT</lastBuildDate><item><title><![CDATA[leetcode contest 188]]></title><description><![CDATA[Build an Array With Stack Operations
+Easy 没什么难度，就是如果在target里就push，不在的话就push & pop 1442. Count Triplets That Can Form Two Arrays of Equal XOR…]]></description><link>http://hubingcheng.com/leetcode contest 188/</link><guid isPermaLink="false">http://hubingcheng.com/leetcode contest 188/</guid><pubDate>Sat, 09 May 2020 22:06:01 GMT</pubDate><content:encoded>&lt;ol start=&quot;1441&quot;&gt;
+&lt;li&gt;Build an Array With Stack Operations
+Easy&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Given an array target and an integer n. In each iteration, you will read a number from  list = {1,2,3..., n}.
+
+Build the target array using the following operations:
+
+Push: Read a new element from the beginning list, and push it in the array.
+Pop: delete the last element of the array.
+If the target array is already built, stop reading more elements.
+You are guaranteed that the target array is strictly increasing, only containing numbers between 1 to n inclusive.
+
+Return the operations to build the target array.
+
+You are guaranteed that the answer is unique.
+
+ 
+
+Example 1:
+
+Input: target = [1,3], n = 3
+Output: [&amp;quot;Push&amp;quot;,&amp;quot;Push&amp;quot;,&amp;quot;Pop&amp;quot;,&amp;quot;Push&amp;quot;]
+Explanation: 
+Read number 1 and automatically push in the array -&amp;gt; [1]
+Read number 2 and automatically push in the array then Pop it -&amp;gt; [1]
+Read number 3 and automatically push in the array -&amp;gt; [1,3]
+Example 2:
+
+Input: target = [1,2,3], n = 3
+Output: [&amp;quot;Push&amp;quot;,&amp;quot;Push&amp;quot;,&amp;quot;Push&amp;quot;]
+Example 3:
+
+Input: target = [1,2], n = 4
+Output: [&amp;quot;Push&amp;quot;,&amp;quot;Push&amp;quot;]
+Explanation: You only need to read the first 2 numbers and stop.
+Example 4:
+
+Input: target = [2,3,4], n = 4
+Output: [&amp;quot;Push&amp;quot;,&amp;quot;Pop&amp;quot;,&amp;quot;Push&amp;quot;,&amp;quot;Push&amp;quot;,&amp;quot;Push&amp;quot;]
+ 
+
+Constraints:
+
+1 &amp;lt;= target.length &amp;lt;= 100
+1 &amp;lt;= target[i] &amp;lt;= 100
+1 &amp;lt;= n &amp;lt;= 100
+target is strictly increasing.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;没什么难度，就是如果在target里就push，不在的话就push &amp;#x26; pop&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;class Solution {
+    public List&amp;lt;String&amp;gt; buildArray(int[] target, int n) {
+        List&amp;lt;String&amp;gt; ret = new ArrayList&amp;lt;&amp;gt;();
+        int index = 0;
+        for (int number = 1; number &amp;lt;= n; number++){
+        
+            if (index == target.length) {
+                break;
+            }
+            if (number == target[index]) {
+                ret.add(&amp;quot;Push&amp;quot;);
+                index++;
+            } else {
+                ret.add(&amp;quot;Push&amp;quot;);
+                ret.add(&amp;quot;Pop&amp;quot;);
+            }
+        }
+        
+        return ret;
+    }
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;&lt;a href=&quot;https://leetcode.com/problems/count-triplets-that-can-form-two-arrays-of-equal-xor/submissions/&quot;&gt;1442. Count Triplets That Can Form Two Arrays of Equal XOR&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Medium&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Given an array of integers arr.
+
+We want to select three indices i, j and k where (0 &amp;lt;= i &amp;lt; j &amp;lt;= k &amp;lt; arr.length).
+
+Let&amp;#39;s define a and b as follows:
+
+a = arr[i] ^ arr[i + 1] ^ ... ^ arr[j - 1]
+b = arr[j] ^ arr[j + 1] ^ ... ^ arr[k]
+Note that ^ denotes the bitwise-xor operation.
+
+Return the number of triplets (i, j and k) Where a == b.
+
+ 
+
+Example 1:
+
+Input: arr = [2,3,1,6,7]
+Output: 4
+Explanation: The triplets are (0,1,2), (0,2,2), (2,3,4) and (2,4,4)
+Example 2:
+
+Input: arr = [1,1,1,1,1]
+Output: 10
+Example 3:
+
+Input: arr = [2,3]
+Output: 0
+Example 4:
+
+Input: arr = [1,3,5,7,9]
+Output: 3
+Example 5:
+
+Input: arr = [7,11,12,9,5,2,7,17,22]
+Output: 8
+ 
+
+Constraints:
+
+1 &amp;lt;= arr.length &amp;lt;= 300
+1 &amp;lt;= arr[i] &amp;lt;= 10^8&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;先做预计算，把所有区间的异或和都算好，然后再找对应的pair。通过map，记录所有异或和相同的区间，然后再这些区间里面找连在一起的&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;class Solution {
+    public int countTriplets(int[] arr) {
+        int count = 0;
+        int[][] mem = new int[arr.length][arr.length];
+        // pre sum
+        Map&amp;lt;Integer, List&amp;lt;Pair&amp;lt;Integer, Integer&amp;gt;&amp;gt;&amp;gt; map = new HashMap&amp;lt;&amp;gt;();
+        for (int end = 0; end &amp;lt; arr.length; end++) {
+            go(map, mem, arr, 0, end);
+        }
+        // find pairs
+        for (List&amp;lt;Pair&amp;lt;Integer, Integer&amp;gt;&amp;gt; list : map.values()){
+            // start. num
+            Map&amp;lt;Integer, Integer&amp;gt; right = new HashMap&amp;lt;&amp;gt;();
+            for (Pair&amp;lt;Integer, Integer&amp;gt; pair : list) {
+                right.put(pair.getKey(), right.getOrDefault(pair.getKey(), 0) + 1);
+            }
+            for (Pair&amp;lt;Integer, Integer&amp;gt; pair : list) {
+                count += right.getOrDefault(pair.getValue() + 1, 0);
+            }
+        }
+        
+        return count;
+    }
+    // calculate value from start to end
+    public void go(Map&amp;lt;Integer, List&amp;lt;Pair&amp;lt;Integer, Integer&amp;gt;&amp;gt;&amp;gt; map, int[][] mem, int[] arr, int start, int end) {
+        if (start == end) {
+            mem[start][end] = arr[end];
+
+        } else {
+            go(map, mem, arr, start + 1, end);
+            mem[start][end] = arr[start] ^ mem[start+1][end];
+        }
+        map.putIfAbsent(mem[start][end], new ArrayList&amp;lt;&amp;gt;());
+        map.get(mem[start][end]).add(new Pair&amp;lt;&amp;gt;(start, end));
+    }
+
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;&lt;a href=&quot;https://leetcode.com/problems/minimum-time-to-collect-all-apples-in-a-tree/&quot;&gt;1443. Minimum Time to Collect All Apples in a Tree&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Medium&lt;/p&gt;
+&lt;p&gt;Given an undirected tree consisting of n vertices numbered from 0 to n-1, which has some apples in their vertices. You spend 1 second to walk over one edge of the tree. Return the minimum time in seconds you have to spend in order to collect all apples in the tree starting at vertex 0 and coming back to this vertex.&lt;/p&gt;
+&lt;p&gt;The edges of the undirected tree are given in the array edges, where edges[i] = [fromi, toi] means that exists an edge connecting the vertices fromi and toi. Additionally, there is a boolean array hasApple, where hasApple[i] = true means that vertex i has an apple, otherwise, it does not have any apple.&lt;/p&gt;
+&lt;p&gt;Example 1:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://assets.leetcode.com/uploads/2020/04/23/min_time_collect_apple_1.png&quot;&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Input: n = 7, edges = [[0,1],[0,2],[1,4],[1,5],[2,3],[2,6]], hasApple = [false,false,true,false,true,true,false]
+Output: 8 
+Explanation: The figure above represents the given tree where red vertices have an apple. One optimal path to collect all apples is shown by the green arrows.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Example 2:
+&lt;img src=&quot;https://assets.leetcode.com/uploads/2020/04/23/min_time_collect_apple_2.png&quot;&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Input: n = 7, edges = [[0,1],[0,2],[1,4],[1,5],[2,3],[2,6]], hasApple = [false,false,true,false,false,true,false]
+Output: 6
+Explanation: The figure above represents the given tree where red vertices have an apple. One optimal path to collect all apples is shown by the green arrows.  &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Example 3:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Input: n = 7, edges = [[0,1],[0,2],[1,4],[1,5],[2,3],[2,6]], hasApple = [false,false,false,false,false,false,false]
+Output: 0&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Constraints:
+
+1 &amp;lt;= n &amp;lt;= 10^5
+edges.length == n-1
+edges[i].length == 2
+0 &amp;lt;= fromi, toi &amp;lt;= n-1
+fromi &amp;lt; toi
+hasApple.length == n&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;这个问题就是一个典型的递归问题，因为图形是树而且起点固定，所以简单了很多。简而言之就是找到左子树和右子树的对应值，根据子树是否有苹果递归。格外要注意的就是根节点略有特殊。&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;class Solution {
+    public int minTime(int n, int[][] edges, List&amp;lt;Boolean&amp;gt; hasApple) {
+        Map&amp;lt;Integer, List&amp;lt;Integer&amp;gt;&amp;gt; way = new HashMap&amp;lt;&amp;gt;();
+
+        for (int[] edge : edges) {
+            way.putIfAbsent(edge[0], new ArrayList&amp;lt;&amp;gt;());
+            way.get(edge[0]).add(edge[1]);
+        }
+        System.out.println(&amp;quot;way &amp;quot; + way);
+
+        int ret = 0;
+        for (int subnode : way.get(0)) {
+            int r = steps(way, subnode, hasApple);
+            ret += r;
+        }
+        return ret;
+    }
+
+    private int steps(Map&amp;lt;Integer, List&amp;lt;Integer&amp;gt;&amp;gt; way, int node, List&amp;lt;Boolean&amp;gt; hasApple) {
+        // 边界条件，如果本身是苹果那么要走两步
+        if (way.get(node) == null) {
+            if (hasApple.get(node)) {
+                return 2;
+            } else {
+                return 0;
+            }
+        }
+        int ret = 0;
+        for (int subnode : way.get(node)) {
+            int r = steps(way, subnode, hasApple);
+            ret += r;
+        }
+
+        // 如果子树有苹果，那么节点本身必然要遍历
+        if (ret &amp;gt; 0) {
+            return ret + 2;
+        } else if (hasApple.get(node)) {
+            return 2;
+        } else {
+            return 0;
+        }
+    }
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;&lt;a href=&quot;https://leetcode.com/problems/number-of-ways-of-cutting-a-pizza/&quot;&gt;1444. Number of Ways of Cutting a Pizza&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Hard&lt;/p&gt;
+&lt;p&gt;Given a rectangular pizza represented as a rows x cols matrix containing the following characters: ‘A’ (an apple) and ’.’ (empty cell) and given the integer k. You have to cut the pizza into k pieces using k-1 cuts. &lt;/p&gt;
+&lt;p&gt;For each cut you choose the direction: vertical or horizontal, then you choose a cut position at the cell boundary and cut the pizza into two pieces. If you cut the pizza vertically, give the left part of the pizza to a person. If you cut the pizza horizontally, give the upper part of the pizza to a person. Give the last piece of pizza to the last person.&lt;/p&gt;
+&lt;p&gt;Return the number of ways of cutting the pizza such that each piece contains at least one apple. Since the answer can be a huge number, return this modulo 10^9 + 7.&lt;/p&gt;
+&lt;p&gt;Example 1:
+&lt;img src=&quot;https://assets.leetcode.com/uploads/2020/04/23/ways_to_cut_apple_1.png&quot;&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Input: pizza = [&amp;quot;A..&amp;quot;,&amp;quot;AAA&amp;quot;,&amp;quot;...&amp;quot;], k = 3
+Output: 3 
+Explanation: The figure above shows the three ways to cut the pizza. Note that pieces must contain at least one apple.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Example 2:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Input: pizza = [&amp;quot;A..&amp;quot;,&amp;quot;AA.&amp;quot;,&amp;quot;...&amp;quot;], k = 3
+Output: 1&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Example 3:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Input: pizza = [&amp;quot;A..&amp;quot;,&amp;quot;A..&amp;quot;,&amp;quot;...&amp;quot;], k = 1
+Output: 1&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Constraints:
+
+1 &amp;lt;= rows, cols &amp;lt;= 50
+rows == pizza.length
+cols == pizza[i].length
+1 &amp;lt;= k &amp;lt;= 10
+pizza consists of characters &amp;#39;A&amp;#39; and &amp;#39;.&amp;#39; only.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;题目就是要保证每次切的时候两边都有苹果。但是这个判断我们不可能每次都遍历全图算一遍，所以我们必须要预计算减少时间复杂度。如果你直接计算的话，那么所有的区间是有&lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;msup&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mn&gt;4&lt;/mn&gt;&lt;/msup&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;n^4&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.8141079999999999em;vertical-align:0em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;msupsub&quot;&gt;&lt;span class=&quot;vlist-t&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.8141079999999999em;&quot;&gt;&lt;span style=&quot;top:-3.063em;margin-right:0.05em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:2.7em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;4&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;个，太大了。但是因为切割方式的特殊，我们每次只去掉左边或者上面的蛋糕，根据这个特性，我们计算的区间可以固定右下角的定点。即我们可以预计算apples[row][col],对于每个apples[i][j],其值的意义为以（i,j）为左上角，右下角为pizza的右下角的这个矩形中有多少个苹果。而且这个递推公式为apples[row][col] = apples[row+1][col] + apples[row][col+1] - apples[row+1][col+1] + {is pizza(i,j) has apple}。那么我们就可以开始切了。最直接粗暴的方式就是dfs，遍历每种可能的切法，并且让每次切的时候都必然能切完。这个要求就是如果现在还剩n刀要切，那么切完剩下的pizza必须要有n个apple。并且我们配上熟悉的DP，加个memory减少时间复杂度。mem[row][col][cut]表示对于左上定点为(row,col)的子pizza，还有n刀要切的时候有多少种切法。实测时间和空间都超过100%，代码如下&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;class Solution {
+    public int ways(String[] pizza, int k) {
+        int l1 = pizza.length;
+        int l2 = pizza[0].length();
+        int[][] apples = new int[pizza.length][pizza[0].length()];
+        char c = pizza[l1 - 1].charAt(l2 - 1);
+        apples[pizza.length-1][pizza[0].length() - 1] =  c == &amp;#39;A&amp;#39; ? 1 : 0;
+        // last row
+        for (int i = l2 - 2; i &amp;gt;= 0; i-- ) {
+            boolean isApple = pizza[l1 - 1].charAt(i) == &amp;#39;A&amp;#39;;
+            int num = isApple ? 1 : 0;
+            apples[l1-1][i] = num + apples[l1 - 1][i+1];
+        }
+
+        // last col
+        for (int i = l1 - 2; i &amp;gt;= 0; i-- ) {
+            boolean isApple = pizza[i].charAt(l2-1) == &amp;#39;A&amp;#39;;
+            int num = isApple ? 1 : 0;
+            apples[i][l2-1] = num + apples[i+1][l2-1];
+        }
+
+        for (int row = l1 - 2; row &amp;gt;= 0; row--) {
+            for (int col = l2 - 2; col &amp;gt;=0; col--) {
+                int num = pizza[row].charAt(col) == &amp;#39;A&amp;#39; ? 1 : 0;
+                int ret = apples[row+1][col] + apples[row][col+1] - apples[row+1][col+1];
+                apples[row][col] = num + ret;
+            }
+        }
+
+        Integer[][][] mem = new Integer[l1][l2][k+1];
+        return cuts(apples, mem, 0, 0, k - 1);
+    }
+
+    // mem: row, col, cut
+    private int cuts(int[][] apples, Integer[][][] mem, int row, int col, int cut) {
+        if (cut == 0) {
+            return 1;
+        }
+        if (mem[row][col][cut] != null) {
+            return mem[row][col][cut];
+        }
+        int count = apples[row][col];
+
+        int cutsChoice = 0;
+
+        // test horizontal cut
+        for (int i = col + 1; i &amp;lt; apples[0].length; i++) {
+            int rightApples = apples[row][i];
+            if (rightApples &amp;gt;= cut) {
+                // 左边必须有apple
+                if (rightApples == count) {
+                    continue;
+                }
+                cutsChoice+= cuts(apples, mem, row, i, cut - 1);
+                cutsChoice = cutsChoice % 1000000007;
+            } else {
+                // 右边apple已经不够，不用遍历了
+                break;
+            }
+        }
+
+        // test  cut row
+        for (int i = row + 1; i &amp;lt; apples.length; i++) {
+            int downApples = apples[i][col];
+            if (downApples &amp;gt;= cut) {
+                if (downApples == count) {
+                    continue;
+                }
+                cutsChoice+= cuts(apples, mem, i, col, cut - 1);
+                cutsChoice = cutsChoice % 1000000007;
+            } else {
+                break;
+            }
+        }
+        mem[row][col][cut] = cutsChoice;
+
+        return cutsChoice;
+    }
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[leetcode contest 187]]></title><description><![CDATA[按时周更 1436. Destination City Easy 没什么可说的，只需要找到出度为0的点就可以了。 1437. Check If All 1’s Are at Least Length K Places Away Medium Given an array nums…]]></description><link>http://hubingcheng.com/leetcode contest 187/</link><guid isPermaLink="false">http://hubingcheng.com/leetcode contest 187/</guid><pubDate>Sun, 03 May 2020 20:05:10 GMT</pubDate><content:encoded>&lt;p&gt;按时周更&lt;/p&gt;
 &lt;h2&gt;&lt;a href=&quot;https://leetcode.com/problems/destination-city/&quot;&gt;1436. Destination City&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Easy&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;You are given the array paths, where paths[i] = [cityAi, cityBi] means there exists a direct path going from cityAi to cityBi. Return the destination city, that is, the city without any path outgoing to another city.
