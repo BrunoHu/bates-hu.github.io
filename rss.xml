@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Bates Hu]]></title><description><![CDATA[Personal Web of Bates Hu]]></description><link>http://hubingcheng.com</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 17 May 2020 04:55:17 GMT</lastBuildDate><item><title><![CDATA[leetcode contest 189]]></title><description><![CDATA[1450. Number of Students Doing Homework at a Given Time Difficulty:Easy 没什么好说的，就是遍历 1451. Rearrange Words in a Sentence Medium…]]></description><link>http://hubingcheng.com/leetcode contest 189/</link><guid isPermaLink="false">http://hubingcheng.com/leetcode contest 189/</guid><pubDate>Sat, 16 May 2020 21:06:04 GMT</pubDate><content:encoded>&lt;h2&gt;&lt;a href=&quot;https://leetcode.com/problems/number-of-students-doing-homework-at-a-given-time/&quot;&gt;1450. Number of Students Doing Homework at a Given Time&lt;/a&gt;&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Bates Hu]]></title><description><![CDATA[Personal Web of Bates Hu]]></description><link>http://hubingcheng.com</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 17 May 2020 04:58:47 GMT</lastBuildDate><item><title><![CDATA[leetcode contest 189]]></title><description><![CDATA[1450. Number of Students Doing Homework at a Given Time Difficulty:Easy 没什么好说的，就是遍历 1451. Rearrange Words in a Sentence Medium…]]></description><link>http://hubingcheng.com/leetcode contest 189/</link><guid isPermaLink="false">http://hubingcheng.com/leetcode contest 189/</guid><pubDate>Sat, 16 May 2020 21:06:04 GMT</pubDate><content:encoded>&lt;h2&gt;&lt;a href=&quot;https://leetcode.com/problems/number-of-students-doing-homework-at-a-given-time/&quot;&gt;1450. Number of Students Doing Homework at a Given Time&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Difficulty:Easy&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Given two integer arrays startTime and endTime and given an integer queryTime.
 
@@ -114,7 +114,7 @@ text begins with a capital letter and then contains lowercase letters and single
         return String.join(&amp;quot; &amp;quot;, ret);
     }
 }&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h2&gt;【1452. People Whose List of Favorite Companies Is Not a Subset of Another List](&lt;a href=&quot;https://leetcode.com/problems/people-whose-list-of-favorite-companies-is-not-a-subset-of-another-list/&quot;&gt;https://leetcode.com/problems/people-whose-list-of-favorite-companies-is-not-a-subset-of-another-list/&lt;/a&gt;)&lt;/h2&gt;
+&lt;h2&gt;&lt;a href=&quot;https://leetcode.com/problems/people-whose-list-of-favorite-companies-is-not-a-subset-of-another-list/&quot;&gt;1452. People Whose List of Favorite Companies Is Not a Subset of Another List&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Medium&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Given the array favoriteCompanies where favoriteCompanies[i] is the list of favorites companies for the ith person (indexed from 0).
 
@@ -210,7 +210,7 @@ Output: 4&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 points[i].length == 2
 -10^4 &amp;lt;= points[i][0], points[i][1] &amp;lt;= 10^4
 1 &amp;lt;= r &amp;lt;= 5000&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;这个题目其实挺有意思的，一开始是按题目的思路想着怎么用圆去覆盖他们。但是因为圆心的位置是float的，不可能全部遍历，所以只能换一种思路。后面想到了，最小覆盖圆的方法。y原理是这样的，如果有一个半径为r的圆能最多覆盖n个点，那么必然存在一个子圆，同样覆盖n个相同的点，且有至少两个点在子圆的边界上。两个点可以用直径确定一个圆，而三个点可以唯一确定一个圆。那么整个计算的过程就是这样的，遍历两个点和三个点的组合，确定其对应的圆，如果半径比r小，那么计算有多少个其他点在圆中，如此得到那个能包含最多点的子圆。然后其中注意一下double的计算判断是否包含要留一些buffer。&lt;/p&gt;
+&lt;p&gt;这个题目其实挺有意思的，真的是很好的将算法和数学结合起来了。一开始是按题目的思路想着怎么用圆去覆盖他们。但是因为圆心的位置是float的，不可能全部遍历，所以只能换一种思路。后面想到了，最小覆盖圆的方法。y原理是这样的，如果有一个半径为r的圆能最多覆盖n个点，那么必然存在一个子圆，同样覆盖n个相同的点，且有至少两个点在子圆的边界上。两个点可以用直径确定一个圆，而三个点可以唯一确定一个圆。那么整个计算的过程就是这样的，遍历两个点和三个点的组合，确定其对应的圆，如果半径比r小，那么计算有多少个其他点在圆中，如此得到那个能包含最多点的子圆。然后其中注意一下double的计算判断是否包含要留一些buffer。&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;class Solution {
     public int numPoints(int[][] points, int r) {
         int maxCount = 1;
