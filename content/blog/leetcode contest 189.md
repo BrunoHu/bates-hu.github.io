@@ -134,7 +134,7 @@ class Solution {
 }
 ```
 
-## 【1452. People Whose List of Favorite Companies Is Not a Subset of Another List](https://leetcode.com/problems/people-whose-list-of-favorite-companies-is-not-a-subset-of-another-list/)
+## [1452. People Whose List of Favorite Companies Is Not a Subset of Another List](https://leetcode.com/problems/people-whose-list-of-favorite-companies-is-not-a-subset-of-another-list/)
 Medium
 ```
 Given the array favoriteCompanies where favoriteCompanies[i] is the list of favorites companies for the ith person (indexed from 0).
@@ -263,7 +263,7 @@ points[i].length == 2
 1 <= r <= 5000
 ```
 
-这个题目其实挺有意思的，一开始是按题目的思路想着怎么用圆去覆盖他们。但是因为圆心的位置是float的，不可能全部遍历，所以只能换一种思路。后面想到了，最小覆盖圆的方法。y原理是这样的，如果有一个半径为r的圆能最多覆盖n个点，那么必然存在一个子圆，同样覆盖n个相同的点，且有至少两个点在子圆的边界上。两个点可以用直径确定一个圆，而三个点可以唯一确定一个圆。那么整个计算的过程就是这样的，遍历两个点和三个点的组合，确定其对应的圆，如果半径比r小，那么计算有多少个其他点在圆中，如此得到那个能包含最多点的子圆。然后其中注意一下double的计算判断是否包含要留一些buffer。
+这个题目其实挺有意思的，真的是很好的将算法和数学结合起来了。一开始是按题目的思路想着怎么用圆去覆盖他们。但是因为圆心的位置是float的，不可能全部遍历，所以只能换一种思路。后面想到了，最小覆盖圆的方法。y原理是这样的，如果有一个半径为r的圆能最多覆盖n个点，那么必然存在一个子圆，同样覆盖n个相同的点，且有至少两个点在子圆的边界上。两个点可以用直径确定一个圆，而三个点可以唯一确定一个圆。那么整个计算的过程就是这样的，遍历两个点和三个点的组合，确定其对应的圆，如果半径比r小，那么计算有多少个其他点在圆中，如此得到那个能包含最多点的子圆。然后其中注意一下double的计算判断是否包含要留一些buffer。
 
 ```
 class Solution {
