@@ -1,4 +1,253 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Bates Hu]]></title><description><![CDATA[Personal Web of Bates Hu]]></description><link>http://hubingcheng.com</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 17 May 2020 04:58:47 GMT</lastBuildDate><item><title><![CDATA[leetcode contest 189]]></title><description><![CDATA[1450. Number of Students Doing Homework at a Given Time Difficulty:Easy 没什么好说的，就是遍历 1451. Rearrange Words in a Sentence Medium…]]></description><link>http://hubingcheng.com/leetcode contest 189/</link><guid isPermaLink="false">http://hubingcheng.com/leetcode contest 189/</guid><pubDate>Sat, 16 May 2020 21:06:04 GMT</pubDate><content:encoded>&lt;h2&gt;&lt;a href=&quot;https://leetcode.com/problems/number-of-students-doing-homework-at-a-given-time/&quot;&gt;1450. Number of Students Doing Homework at a Given Time&lt;/a&gt;&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Bates Hu]]></title><description><![CDATA[Personal Web of Bates Hu]]></description><link>http://hubingcheng.com</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 27 May 2020 07:53:25 GMT</lastBuildDate><item><title><![CDATA[leetcode contest 190]]></title><description><![CDATA[现在才发现那些定时更新的up主真的挺有毅力，我连这种周更都经常会犯懒拖更。这一次的contest也按时写完啦，而且第四题还是比较常规的dp哦。 1455. Check If a Word Occurs As a Prefix of Any Word in a Sentence…]]></description><link>http://hubingcheng.com/leetcode contest 190/</link><guid isPermaLink="false">http://hubingcheng.com/leetcode contest 190/</guid><pubDate>Wed, 27 May 2020 00:05:11 GMT</pubDate><content:encoded>&lt;p&gt;现在才发现那些定时更新的up主真的挺有毅力，我连这种周更都经常会犯懒拖更。这一次的contest也按时写完啦，而且第四题还是比较常规的dp哦。&lt;/p&gt;
+&lt;h2&gt;&lt;a href=&quot;https://leetcode.com/problems/check-if-a-word-occurs-as-a-prefix-of-any-word-in-a-sentence/&quot;&gt;1455. Check If a Word Occurs As a Prefix of Any Word in a Sentence&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Easy&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Given a sentence that consists of some words separated by a single space, and a searchWord.
+
+You have to check if searchWord is a prefix of any word in sentence.
+
+Return the index of the word in sentence where searchWord is a prefix of this word (1-indexed).
+
+If searchWord is a prefix of more than one word, return the index of the first word (minimum index). If there is no such word return -1.
+
+A prefix of a string S is any leading contiguous substring of S.
+
+ 
+
+Example 1:
+
+Input: sentence = &amp;quot;i love eating burger&amp;quot;, searchWord = &amp;quot;burg&amp;quot;
+Output: 4
+Explanation: &amp;quot;burg&amp;quot; is prefix of &amp;quot;burger&amp;quot; which is the 4th word in the sentence.
+Example 2:
+
+Input: sentence = &amp;quot;this problem is an easy problem&amp;quot;, searchWord = &amp;quot;pro&amp;quot;
+Output: 2
+Explanation: &amp;quot;pro&amp;quot; is prefix of &amp;quot;problem&amp;quot; which is the 2nd and the 6th word in the sentence, but we return 2 as it&amp;#39;s the minimal index.
+Example 3:
+
+Input: sentence = &amp;quot;i am tired&amp;quot;, searchWord = &amp;quot;you&amp;quot;
+Output: -1
+Explanation: &amp;quot;you&amp;quot; is not a prefix of any word in the sentence.
+Example 4:
+
+Input: sentence = &amp;quot;i use triple pillow&amp;quot;, searchWord = &amp;quot;pill&amp;quot;
+Output: 4
+Example 5:
+
+Input: sentence = &amp;quot;hello from the other side&amp;quot;, searchWord = &amp;quot;they&amp;quot;
+Output: -1
+ 
+
+Constraints:
+
+1 &amp;lt;= sentence.length &amp;lt;= 100
+1 &amp;lt;= searchWord.length &amp;lt;= 10
+sentence consists of lowercase English letters and spaces.
+searchWord consists of lowercase English letters.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;没什么难度，就是写。&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;class Solution {
+    public int isPrefixOfWord(String sentence, String searchWord) {
+        String[] strings = sentence.split(&amp;quot; &amp;quot;);
+        for (int i = 0; i &amp;lt; strings.length; i++) {
+            if (strings[i].length() &amp;gt;= searchWord.length() &amp;amp;&amp;amp; strings[i].startsWith(searchWord)) {
+                return i+1;
+            }
+        }
+        return -1;
+    }
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;&lt;a href=&quot;https://leetcode.com/problems/maximum-number-of-vowels-in-a-substring-of-given-length/&quot;&gt;1456. Maximum Number of Vowels in a Substring of Given Length&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Medium&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Given a string s and an integer k.
+
+Return the maximum number of vowel letters in any substring of s with length k.
+
+Vowel letters in English are (a, e, i, o, u).
+
+ 
+
+Example 1:
+
+Input: s = &amp;quot;abciiidef&amp;quot;, k = 3
+Output: 3
+Explanation: The substring &amp;quot;iii&amp;quot; contains 3 vowel letters.
+Example 2:
+
+Input: s = &amp;quot;aeiou&amp;quot;, k = 2
+Output: 2
+Explanation: Any substring of length 2 contains 2 vowels.
+Example 3:
+
+Input: s = &amp;quot;leetcode&amp;quot;, k = 3
+Output: 2
+Explanation: &amp;quot;lee&amp;quot;, &amp;quot;eet&amp;quot; and &amp;quot;ode&amp;quot; contain 2 vowels.
+Example 4:
+
+Input: s = &amp;quot;rhythms&amp;quot;, k = 4
+Output: 0
+Explanation: We can see that s doesn&amp;#39;t have any vowel letters.
+Example 5:
+
+Input: s = &amp;quot;tryhard&amp;quot;, k = 4
+Output: 1
+ 
+
+Constraints:
+
+1 &amp;lt;= s.length &amp;lt;= 10^5
+s consists of lowercase English letters.
+1 &amp;lt;= k &amp;lt;= s.length&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;典型的滑动窗口，双指针干就完了&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;class Solution {
+    public int maxVowels(String s, int k) {
+        int left = 0;
+        int right = k;
+        
+        int now = 0;
+        for (int i = left; i &amp;lt; k; i++) {
+            if (isV(s.charAt(i))) {
+                now++;
+            }
+        }
+        int max = now;
+        
+        
+        while (right &amp;lt; s.length()) {
+            if (isV(s.charAt(right))) {
+                now++;
+            }
+            right++;
+            if (isV(s.charAt(left))) {
+                now--;
+            }
+            left++;
+            max = Math.max(now, max);
+        }
+        return max;
+    }
+
+    private boolean isV(char c) {
+        return c == &amp;#39;a&amp;#39; || c == &amp;#39;e&amp;#39; || c == &amp;#39;i&amp;#39; || c == &amp;#39;o&amp;#39; || c == &amp;#39;u&amp;#39;;
+    }
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;&lt;a href=&quot;https://leetcode.com/problems/pseudo-palindromic-paths-in-a-binary-tree/&quot;&gt;1457. Pseudo-Palindromic Paths in a Binary Tree&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Medium&lt;/p&gt;
+&lt;p&gt;Given a binary tree where node values are digits from 1 to 9. A path in the binary tree is said to be pseudo-palindromic if at least one permutation of the node values in the path is a palindrome.&lt;/p&gt;
+&lt;p&gt;Return the number of pseudo-palindromic paths going from the root node to leaf nodes.&lt;/p&gt;
+&lt;p&gt;Example 1:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://assets.leetcode.com/uploads/2020/05/06/palindromic_paths_1.png&quot;&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Input: root = [2,3,1,3,1,null,1]
+Output: 2 
+Explanation: The figure above represents the given binary tree. There are three paths going from the root node to leaf nodes: the red path [2,3,3], the green path [2,1,1], and the path [2,3,1]. Among these paths only red path and green path are pseudo-palindromic paths since the red path [2,3,3] can be rearranged in [3,2,3] (palindrome) and the green path [2,1,1] can be rearranged in [1,2,1] (palindrome).&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Example 2:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://assets.leetcode.com/uploads/2020/05/07/palindromic_paths_2.png&quot;&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Input: root = [2,1,1,1,3,null,null,null,null,null,1]
+Output: 1 
+Explanation: The figure above represents the given binary tree. There are three paths going from the root node to leaf nodes: the green path [2,1,1], the path [2,1,3,1], and the path [2,1]. Among these paths only the green path is pseudo-palindromic since [2,1,1] can be rearranged in [1,2,1] (palindrome).&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Example 3:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Input: root = [9]
+Output: 1&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Constraints:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;The given binary tree will have between 1 and 10^5 nodes.
+Node values are digits from 1 to 9.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;这个题目可以理解为DFS也可以看成是backtrace，就是遍历每一条路径，在遍历的时候记录路径中各个数值的量，只有路径有不超过一个值为奇数才是回文数。&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;class Solution {
+    int lines = 0;
+    int[] count = new int[10];
+    
+    public int pseudoPalindromicPaths (TreeNode root) {
+        walk(root);
+        return lines;
+    }
+    
+    public void walk(TreeNode root) {
+        count[root.val]++;
+        if (root.left != null) {
+            pseudoPalindromicPaths(root.left);
+        }
+        if (root.right != null) {
+            pseudoPalindromicPaths(root.right);
+        }
+        if (root.left == null &amp;amp;&amp;amp; root.right == null) {
+            if (isPseudoP(count)) {
+                lines++;
+            }
+        }
+        count[root.val]--;
+    }
+    
+    private boolean isPseudoP(int[] count) {
+        int oddNum = 0;
+        for (int i = 1; i &amp;lt; count.length; i++) {
+            if (count[i] % 2 == 1) {
+                oddNum++;
+            }
+        }
+        return oddNum &amp;lt;= 1;
+    }
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;&lt;a href=&quot;https://leetcode.com/problems/max-dot-product-of-two-subsequences/&quot;&gt;1458. Max Dot Product of Two Subsequences&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Hard&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Given two arrays nums1 and nums2.
+
+Return the maximum dot product between non-empty subsequences of nums1 and nums2 with the same length.
+
+A subsequence of a array is a new array which is formed from the original array by deleting some (can be none) of the characters without disturbing the relative positions of the remaining characters. (ie, [2,3,5] is a subsequence of [1,2,3,4,5] while [1,5,3] is not).
+
+ 
+
+Example 1:
+
+Input: nums1 = [2,1,-2,5], nums2 = [3,0,-6]
+Output: 18
+Explanation: Take subsequence [2,-2] from nums1 and subsequence [3,-6] from nums2.
+Their dot product is (2*3 + (-2)*(-6)) = 18.
+Example 2:
+
+Input: nums1 = [3,-2], nums2 = [2,-6,7]
+Output: 21
+Explanation: Take subsequence [3] from nums1 and subsequence [7] from nums2.
+Their dot product is (3*7) = 21.
+Example 3:
+
+Input: nums1 = [-1,-1], nums2 = [1,1]
+Output: -1
+Explanation: Take subsequence [-1] from nums1 and subsequence [1] from nums2.
+Their dot product is -1.
+ 
+Constraints:
+1 &amp;lt;= nums1.length, nums2.length &amp;lt;= 500
+-1000 &amp;lt;= nums1[i], nums2[i] &amp;lt;= 1000&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;真的题目做多了会有感觉的，这种subsequence很容易让人想到没有后效性，因为前后的元素关联不大。所以我们可以找找这个递推关系。很自然的，我们可以假设&lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;m&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mo separator=&quot;true&quot;&gt;,&lt;/mo&gt;&lt;mi&gt;j&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;m(i,j)&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:1em;vertical-align:-0.25em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;mopen&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;mpunct&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.16666666666666666em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.05724em;&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;mclose&quot;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;表示只用list1的前i+1个数，只用list2的前j+1个数，可以得到的最大结果是什么。很自然的，他的最直接的子问题就是&lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;m&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mo&gt;−&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mo separator=&quot;true&quot;&gt;,&lt;/mo&gt;&lt;mi&gt;j&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;m(i-1,j)&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:1em;vertical-align:-0.25em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;mopen&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222222222222222em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mbin&quot;&gt;−&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222222222222222em;&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:1em;vertical-align:-0.25em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;mpunct&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.16666666666666666em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.05724em;&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;mclose&quot;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;和&lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;m&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mo separator=&quot;true&quot;&gt;,&lt;/mo&gt;&lt;mi&gt;j&lt;/mi&gt;&lt;mo&gt;−&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;m(i,j-1)&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:1em;vertical-align:-0.25em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;mopen&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;mpunct&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.16666666666666666em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.05724em;&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222222222222222em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mbin&quot;&gt;−&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222222222222222em;&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:1em;vertical-align:-0.25em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;mclose&quot;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;，那么我们就可以分情况了&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;情况1，不用list1(i),那么m(i,j) = m(i-1,j)&lt;/li&gt;
+&lt;li&gt;情况2，不用list2(j),那么m(i,j) = m(i,j-1)&lt;/li&gt;
+&lt;li&gt;情况3，都不用，那么m(i,j) = m(i-1, j-1)&lt;/li&gt;
+&lt;li&gt;情况4，配对list1(i) 和 list2（j）,那么m(i,j) = m(i-1,j-1) + l1(i) * l2(j)
+求四个情况的最大值&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;公式如下&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;m(i,j) = max(
+    m(i-1, j),
+    m(i, j-1),
+    m(i-1,j-1),
+    m(i-1,j-1) + l1(i) * l2(j)
+)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;公式在手，dp我有，之后注意一下边界条件就行。代码如下。&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;class Solution {
+    public int maxDotProduct(int[] nums1, int[] nums2) {
+        dp[][] = new int[nums1.length][mnums2.length];
+        for (int i = 0; i &amp;lt; nums1.length; i++) {
+            for (int j = 0; j &amp;lt; nums2.length; j++) {
+                dp[i][j] = A[i] * B[j];
+                if (i &amp;gt; 0 &amp;amp;&amp;amp; j &amp;gt; 0) dp[i][j] += Math.max(dp[i-1][j-1], 0);
+                if (i &amp;gt; 0) dp[i][j] = Math.max(dp[i][j], dp[i-1][j]);
+                if (j &amp;gt; 0) dp[i][j] = Math.max(dp[i][j], dp[i][j - 1]);
+            }
+        }
+        return dp[n-1][m-1];
+    }
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[leetcode contest 189]]></title><description><![CDATA[1450. Number of Students Doing Homework at a Given Time Difficulty:Easy 没什么好说的，就是遍历 1451. Rearrange Words in a Sentence Medium…]]></description><link>http://hubingcheng.com/leetcode contest 189/</link><guid isPermaLink="false">http://hubingcheng.com/leetcode contest 189/</guid><pubDate>Sat, 16 May 2020 21:06:04 GMT</pubDate><content:encoded>&lt;h2&gt;&lt;a href=&quot;https://leetcode.com/problems/number-of-students-doing-homework-at-a-given-time/&quot;&gt;1450. Number of Students Doing Homework at a Given Time&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Difficulty:Easy&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Given two integer arrays startTime and endTime and given an integer queryTime.
 
