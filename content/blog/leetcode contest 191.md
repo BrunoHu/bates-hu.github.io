@@ -10,26 +10,28 @@ Given the array of integers nums, you will choose two different indices i and j 
  
 
 Example 1:
-
+```
 Input: nums = [3,4,5,2]
 Output: 12 
 Explanation: If you choose the indices i=1 and j=2 (indexed from 0), you will get the maximum value, that is, (nums[1]-1)*(nums[2]-1) = (4-1)*(5-1) = 3*4 = 12. 
+```
 Example 2:
-
+```
 Input: nums = [1,5,4,5]
 Output: 16
 Explanation: Choosing the indices i=1 and j=3 (indexed from 0), you will get the maximum value of (5-1)*(5-1) = 16.
+```
 Example 3:
-
+```
 Input: nums = [3,7]
 Output: 12
- 
+```
 
 Constraints:
-
+```
 2 <= nums.length <= 500
 1 <= nums[i] <= 10^3
-
+```
 没啥说的
 ```
 class Solution {
@@ -61,7 +63,7 @@ Return the maximum area of a piece of cake after you cut at each horizontal and 
 
 
 Example 1:
-!()[https://assets.leetcode.com/uploads/2020/05/14/leetcode_max_area_2.png]
+![](https://assets.leetcode.com/uploads/2020/05/14/leetcode_max_area_2.png)
 
 ```
 Input: h = 5, w = 4, horizontalCuts = [1,2,4], verticalCuts = [1,3]
@@ -220,7 +222,6 @@ class Solution {
 
 Hard
 
-```
 Given 2n balls of k distinct colors. You will be given an integer array balls of size k where balls[i] is the number of balls of color i. 
 
 All the balls will be shuffled uniformly at random, then we will distribute the first n balls to the first box and the remaining n balls to the other box (Please read the explanation of the second example carefully).
@@ -232,15 +233,17 @@ We want to calculate the probability that the two boxes have the same number of 
  
 
 Example 1:
-
+```
 Input: balls = [1,1]
 Output: 1.00000
 Explanation: Only 2 ways to divide the balls equally:
 - A ball of color 1 to box 1 and a ball of color 2 to box 2
 - A ball of color 2 to box 1 and a ball of color 1 to box 2
 In both ways, the number of distinct colors in each box is equal. The probability is 2/2 = 1
-Example 2:
+```
 
+Example 2:
+```
 Input: balls = [2,1,1]
 Output: 0.66667
 Explanation: We have the set of balls [1, 1, 2, 3]
@@ -249,26 +252,33 @@ This set of balls will be shuffled randomly and we may have one of the 12 distin
 After that we add the first two balls to the first box and the second two balls to the second box.
 We can see that 8 of these 12 possible random distributions have the same number of distinct colors of balls in each box.
 Probability is 8/12 = 0.66667
-Example 3:
+```
 
+Example 3:
+```
 Input: balls = [1,2,1,2]
 Output: 0.60000
 Explanation: The set of balls is [1, 2, 2, 3, 4, 4]. It is hard to display all the 180 possible random shuffles of this set but it is easy to check that 108 of them will have the same number of distinct colors in each box.
 Probability = 108 / 180 = 0.6
-Example 4:
+```
 
+Example 4:
+```
 Input: balls = [3,2,1]
 Output: 0.30000
 Explanation: The set of balls is [1, 1, 1, 2, 2, 3]. It is hard to display all the 60 possible random shuffles of this set but it is easy to check that 18 of them will have the same number of distinct colors in each box.
 Probability = 18 / 60 = 0.3
-Example 5:
+```
 
+Example 5:
+```
 Input: balls = [6,6,6,6,6,6]
 Output: 0.90327
+```
  
 
 Constraints:
-
+```
 1 <= balls.length <= 8
 1 <= balls[i] <= 6
 sum(balls) is even.
@@ -277,7 +287,7 @@ Answers within 10^-5 of the actual value will be accepted as correct.
 
 首先我们可以得到一个公式来计算组合数(distributions)
 
-$$D(balls) = sum(balls)! / (boss[0]! * boss[1] * ... * boss[-1]!)$$
+$$D(balls) = sum(balls)! / (boss[0]! * boss[1]! * ... * boss[-1]!)$$
 
 对于这个问题，因为只有两堆，所以一旦左边确定了，右边也就确定了。既然如此，我们能穷尽所有左边的组合。而我们已经知道了怎么算组合数，那么我们就能简化为穷尽左边的所有颜色数量组合而已。假设左边的颜色组合为left，那么我们就可以算出对应的right，对比一下left和right拥有的不用颜色数量是不是一致，如果一致的话，这个颜色组合所代表的排列数量为D(left) * D(right).
 
@@ -304,7 +314,6 @@ class Solution {
         if (chosenNum == half) {
             if (isFit(balls, chosen)) {
                 double so =  getSolution(balls, chosen);
-//                System.out.println("solution " + so);
                 solution += so;
             }
             return;
